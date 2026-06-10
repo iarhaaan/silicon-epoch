@@ -76,8 +76,23 @@
 }
 
 .dark {
-  --background: var(--ink);
+  --background: #000000;
   --foreground: var(--paper);
+  --card: oklch(0.08 0.005 60);
+  --card-foreground: var(--paper);
+  --popover: oklch(0.08 0.005 60);
+  --popover-foreground: var(--paper);
+  --primary: var(--paper);
+  --primary-foreground: #000000;
+  --secondary: oklch(0.12 0.005 60);
+  --secondary-foreground: var(--paper);
+  --muted: oklch(0.10 0.005 60);
+  --muted-foreground: oklch(0.65 0.01 75);
+  --accent: var(--ember);
+  --accent-foreground: var(--paper);
+  --border: oklch(0.15 0.005 60);
+  --input: oklch(0.15 0.005 60);
+  --cream: #050505;
 }
 
 @layer base {
