@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SOURCES_DATA } from "@/lib/sources-data";
 
 export const Route = createFileRoute("/sources")({
@@ -16,6 +16,39 @@ export const Route = createFileRoute("/sources")({
 
 function Sources() {
   const [filter, setFilter] = useState<"all" | "hardware" | "labs" | "reasoning" | "energy" | "geopolitics" | "data">("all");
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const source = SOURCES_DATA.find((s) => s.id === hash);
+        if (source) {
+          // Reset the filter to 'all' if the requested card is currently filtered out
+          setFilter((prevFilter) => {
+            if (prevFilter !== "all" && source.category !== prevFilter) {
+              return "all";
+            }
+            return prevFilter;
+          });
+
+          // Wait for DOM to render the item, then scroll to it smoothly
+          setTimeout(() => {
+            const el = document.getElementById(hash);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          }, 100);
+        }
+      }
+    };
+
+    // Run on initial mount
+    handleHashChange();
+
+    // Listen to hashchange events
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const filteredSources = filter === "all" 
     ? SOURCES_DATA 
@@ -62,7 +95,7 @@ function Sources() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24">
         <div className="grid md:grid-cols-2 gap-6">
           {filteredSources.map((source, index) => (
-            <article id={source.id} key={`${source.title}-${index}`} className="scroll-mt-24 target:ring-2 target:ring-ember target:border-ember rounded-2xl border border-border p-8 bg-card hover:border-ember transition-all flex flex-col justify-between">
+            <article id={source.id} key={`${source.title}-${index}`} className="scroll-mt-24 target:ring-2 target:ring-ember target:border-ember target:bg-ember/[0.02] dark:target:bg-ember/[0.04] rounded-2xl border border-border p-8 bg-card hover:border-ember transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between gap-4">
                   <span className="font-mono text-[10px] tracking-widest uppercase text-ember border border-ember/20 rounded px-2 py-0.5">
