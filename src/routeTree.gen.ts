@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
+import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as OpenVsClosedRouteImport } from './routes/open-vs-closed'
 import { Route as NextDecadeRouteImport } from './routes/next-decade'
@@ -28,6 +29,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
   path: '/use-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SourcesRoute = SourcesRouteImport.update({
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/next-decade': typeof NextDecadeRoute
   '/open-vs-closed': typeof OpenVsClosedRoute
   '/sources': typeof SourcesRoute
+  '/timeline': typeof TimelineRoute
   '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesByTo {
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/next-decade': typeof NextDecadeRoute
   '/open-vs-closed': typeof OpenVsClosedRoute
   '/sources': typeof SourcesRoute
+  '/timeline': typeof TimelineRoute
   '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesById {
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/next-decade': typeof NextDecadeRoute
   '/open-vs-closed': typeof OpenVsClosedRoute
   '/sources': typeof SourcesRoute
+  '/timeline': typeof TimelineRoute
   '/use-cases': typeof UseCasesRoute
 }
 export interface FileRouteTypes {
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/next-decade'
     | '/open-vs-closed'
     | '/sources'
+    | '/timeline'
     | '/use-cases'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/next-decade'
     | '/open-vs-closed'
     | '/sources'
+    | '/timeline'
     | '/use-cases'
   id:
     | '__root__'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/next-decade'
     | '/open-vs-closed'
     | '/sources'
+    | '/timeline'
     | '/use-cases'
   fileRoutesById: FileRoutesById
 }
@@ -222,6 +234,7 @@ export interface RootRouteChildren {
   NextDecadeRoute: typeof NextDecadeRoute
   OpenVsClosedRoute: typeof OpenVsClosedRoute
   SourcesRoute: typeof SourcesRoute
+  TimelineRoute: typeof TimelineRoute
   UseCasesRoute: typeof UseCasesRoute
 }
 
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/use-cases'
       fullPath: '/use-cases'
       preLoaderRoute: typeof UseCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sources': {
@@ -350,6 +370,7 @@ const rootRouteChildren: RootRouteChildren = {
   NextDecadeRoute: NextDecadeRoute,
   OpenVsClosedRoute: OpenVsClosedRoute,
   SourcesRoute: SourcesRoute,
+  TimelineRoute: TimelineRoute,
   UseCasesRoute: UseCasesRoute,
 }
 export const routeTree = rootRouteImport

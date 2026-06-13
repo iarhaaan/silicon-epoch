@@ -478,5 +478,104 @@ export const SOURCES_DATA: SourceItem[] = [
     category: "labs",
     summary: "Documents security vulnerabilities enabling indirect prompt injection data leaks and raw model weight extraction across local cross-origin connections.",
     url: "https://nvd.nist.gov/vuln/detail/CVE-2025-32711"
+  },
+  {
+    id: "turing-test-1950",
+    title: "Computing Machinery and Intelligence",
+    author: "Alan Turing",
+    date: "1950",
+    category: "reasoning",
+    summary: "Landmark paper proposing the 'imitation game' (now known as the Turing Test) to evaluate a machine's ability to exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human.",
+    url: "https://doi.org/10.1093/mind/LIX.236.433"
+  },
+  {
+    id: "dartmouth-proposal-1955",
+    title: "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+    author: "John McCarthy, Marvin Minsky, Nathaniel Rochester, Claude Shannon",
+    date: "1955",
+    category: "reasoning",
+    summary: "The founding document of artificial intelligence as an academic field, coining the term 'Artificial Intelligence' and outlining core goals like language processing and neural networks.",
+    url: "https://doi.org/10.1609/aimag.v27i4.1904"
+  },
+  {
+    id: "perceptron-1958",
+    title: "The perceptron: A probabilistic model for information storage and organization in the brain",
+    author: "Frank Rosenblatt",
+    date: "1958",
+    category: "reasoning",
+    summary: "Introduces the Perceptron, one of the earliest artificial neural network architectures, establishing the foundational mathematics for linear classifiers and supervised learning.",
+    url: "https://doi.org/10.1037/h0042519"
+  },
+  {
+    id: "backpropagation-1986",
+    title: "Learning representations by back-propagating errors",
+    author: "David E. Rumelhart, Geoffrey E. Hinton, Ronald J. Williams",
+    date: "1986",
+    category: "reasoning",
+    summary: "Popularizes the backpropagation algorithm for training multi-layer neural networks, demonstrating how internal hidden representations can be learned to solve non-linear problems.",
+    url: "https://doi.org/10.1038/323533a0"
+  },
+  {
+    id: "deepblue-1997",
+    title: "Deep Blue: IBM's Landmark Computer Defeats World Chess Champion Garry Kasparov",
+    author: "IBM History / Research",
+    date: "1997",
+    category: "labs",
+    summary: "The historic chess match where IBM's Deep Blue became the first computer system to defeat a reigning world chess champion under tournament conditions.",
+    url: "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"
+  },
+  {
+    id: "alexnet-2012",
+    title: "ImageNet Classification with Deep Convolutional Neural Networks",
+    author: "Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton",
+    date: "2012",
+    category: "reasoning",
+    summary: "Seminal paper demonstrating a massive breakthrough in image classification using deep convolutional neural networks (AlexNet) on the ImageNet dataset, launching the deep learning boom.",
+    url: "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"
+  },
+  {
+    id: "gans-paper-2014",
+    title: "Generative Adversarial Nets",
+    author: "Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio",
+    date: "2014",
+    category: "reasoning",
+    summary: "Introduces Generative Adversarial Networks (GANs), a novel framework for training generative models using a game-theoretic minimax formulation between a generator and a discriminator.",
+    url: "https://arxiv.org/abs/1406.2661"
+  },
+  {
+    id: "resnet-paper-2015",
+    title: "Deep Residual Learning for Image Recognition",
+    author: "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+    date: "2015",
+    category: "reasoning",
+    summary: "Introduces deep residual networks (ResNet) using skip connections to resolve the vanishing gradient problem, allowing neural networks to scale to hundreds of layers.",
+    url: "https://arxiv.org/abs/1512.03385"
+  },
+  {
+    id: "transformer-paper-2017",
+    title: "Attention Is All You Need",
+    author: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkiewicz, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin",
+    date: "2017",
+    category: "reasoning",
+    summary: "Introduces the Transformer architecture, replacing recurrent and convolutional layers entirely with self-attention mechanisms, which became the backbone of all modern LLMs.",
+    url: "https://arxiv.org/abs/1706.03762"
+  },
+  {
+    id: "gpt3-paper-2020",
+    title: "Language Models are Few-Shot Learners",
+    author: "Tom B. Brown, Benjamin Mann, Nick Ryder et al. (OpenAI)",
+    date: "2020",
+    category: "labs",
+    summary: "Details the 175-billion parameter GPT-3 model, proving that large language models trained on massive text corpora display strong few-shot learning capabilities without task-specific fine-tuning.",
+    url: "https://arxiv.org/abs/2005.14165"
+  },
+  {
+    id: "chatgpt-launch-2022",
+    title: "Introducing ChatGPT: Optimizing Language Models for Dialogue",
+    author: "OpenAI Research",
+    date: "2022",
+    category: "labs",
+    summary: "Official release announcement for ChatGPT, showing how RLHF (Reinforcement Learning from Human Feedback) was used to align conversational agents for public web deployment.",
+    url: "https://openai.com/index/chatgpt/"
   }
 ];

@@ -17,6 +17,7 @@ const NAV = [
   { to: "/data-wall", label: "Data Wall" },
   { to: "/next-decade", label: "Next Decade" },
   { to: "/learn", label: "Learn AI" },
+  { to: "/timeline", label: "Timeline" },
   { to: "/sources", label: "Sources" },
 ] as const;
 
@@ -28,6 +29,7 @@ const CHAPTER_GROUPS = [
       { to: "/how-ai-works", label: "02 · How It Works" },
       { to: "/use-cases", label: "04 · Use Cases" },
       { to: "/games", label: "07 · Games" },
+      { to: "/timeline", label: "AI History Timeline" },
       { to: "/learn", label: "Appendix · Learn AI" },
     ],
   },
@@ -171,6 +173,13 @@ export function SiteNav() {
             className="text-[13px] font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors [&.active]:text-ember"
           >
             Frontier Labs
+          </Link>
+
+          <Link
+            to="/timeline"
+            className="text-[13px] font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors [&.active]:text-ember"
+          >
+            Timeline
           </Link>
 
           <Link

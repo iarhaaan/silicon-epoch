@@ -165,6 +165,7 @@ function Index() {
             </p>
             <div className="md:col-span-5 md:justify-self-end flex flex-wrap gap-3">
               <Link to="/companies" className="rounded-full bg-ink text-paper px-6 py-3 text-sm hover:bg-ember transition-colors">Tour the frontier labs →</Link>
+              <Link to="/timeline" className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors">History Timeline</Link>
               <Link to="/infrastructure" className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors">Hardware & Grid</Link>
             </div>
           </div>
@@ -304,6 +305,7 @@ function Index() {
           </h2>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to="/agi-asi" className="rounded-full bg-ember text-white px-6 py-3 text-sm hover:opacity-90">The road to AGI →</Link>
+            <Link to="/timeline" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Interactive Timeline</Link>
             <Link to="/infrastructure" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Nuclear Datacenters & Grid</Link>
             <Link to="/open-vs-closed" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Open vs Closed weights</Link>
           </div>
