@@ -1,0 +1,3 @@
+# Welcome AI agents and web crawlers! Feel free to explore and index all pages of this history site.
+User-agent: *
+Allow: /
