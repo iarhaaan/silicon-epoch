@@ -396,11 +396,10 @@ function TimelinePage() {
                     <div className="absolute left-4 lg:left-1/2 top-8 lg:-translate-x-1/2 z-10 flex items-center justify-center">
                       <button
                         onClick={() => setSelectedEventId(event.id)}
-                        className={`w-6 h-6 rounded-full border-4 bg-background transition-all duration-300 hover:scale-125 cursor-pointer ${
-                          event.category === "breakthrough" ? "border-ember"
-                            : event.category === "hardware" ? "border-blue-500"
-                            : event.category === "games" ? "border-green-500"
-                            : "border-purple-500"
+                        className={`w-4 h-4 rounded-full border-2 transition-all duration-300 cursor-pointer ${
+                          selectedEventId === event.id
+                            ? "border-ember bg-ember scale-110 shadow-[0_0_8px_rgba(226,92,44,0.5)]"
+                            : "border-ember bg-background hover:scale-110 hover:bg-ember/15"
                         }`}
                       />
                     </div>
