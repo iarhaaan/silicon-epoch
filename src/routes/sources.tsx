@@ -113,7 +113,7 @@ function Sources() {
                 key={`${source.title}-${index}`}
                 className={`scroll-mt-24 rounded-2xl border p-8 transition-all duration-500 flex flex-col justify-between ${
                   isHighlighted
-                    ? "ring-2 ring-ember border-ember bg-ember/[0.04] dark:bg-ember/[0.07]"
+                    ? "border-ember bg-ember/[0.02] dark:bg-ember/[0.04]"
                     : "border-border bg-card hover:border-ember"
                 }`}
               >
