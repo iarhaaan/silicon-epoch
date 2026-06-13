@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
 import { getLogoComponent } from "@/components/company-logos";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/companies")({
   head: () => ({
@@ -20,7 +21,7 @@ type Lab = {
   ceo: string;
   tag: string;
   funding: string;
-  models: { name: string; note: string }[];
+  models: { name: React.ReactNode; note: React.ReactNode }[];
   vision: string;
   quote: string;
   plan: string;
@@ -37,10 +38,10 @@ const LABS: Lab[] = [
     funding: "$6.6B Oct 2024 round at $157B valuation; Microsoft >$13B total backing.",
     accent: "ember",
     models: [
-      { name: "GPT-5.5 (April 2026)", note: "Unified flagship router, 1.05M-token context window. Priced at $5.00 / $30.00 per 1M tokens." },
-      { name: "GPT-5.5 Instant", note: "Cost-sensitive high-speed workhorse, 1M context. Priced at $0.50 / $2.00 per 1M." },
+      { name: <>GPT-5.5 (April 2026)<Citation id="gpt-5-5-announcement" /></>, note: "Unified flagship router, 1.05M-token context window. Priced at $5.00 / $30.00 per 1M tokens." },
+      { name: <>GPT-5.5 Instant<Citation id="gpt-5-5-announcement" /></>, note: "Cost-sensitive high-speed workhorse, 1M context. Priced at $0.50 / $2.00 per 1M." },
       { name: "gpt-oss-120b", note: "Open-access 117B parameters model (MoE activating only 5.1B active parameters per token)." },
-      { name: "o3 Reasoning Series", note: "Reasoning models (o3-mini / o3-pro) optimizing test-time compute for STEM & coding." },
+      { name: <>o3 Reasoning Series<Citation id="reasoning-models-explained" /></>, note: "Reasoning models (o3-mini / o3-pro) optimizing test-time compute for STEM & coding." },
     ],
     vision: "Altman's May 2026 essay 'The Gentle Singularity': 'We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.' Abundance in compute and fusion energy.",
     quote: "“AGI will arrive in 2025... and it is pretty close.” — Sam Altman",
@@ -55,10 +56,10 @@ const LABS: Lab[] = [
     funding: "Amazon $8B total investment. Series E (Mar 2025): $3.5B at $61.5B; Series F (Sep 2025): $13B at $183B valuation.",
     accent: "cobalt",
     models: [
-      { name: "Claude Fable 5 & Mythos 5 (June 2026)", note: "Frontier reasoning engines, 1M context. Unsafeguarded Mythos 5 restricted to US government. Priced at $10.00 / $50.00." },
-      { name: "Claude Opus 4.8 (May 2026)", note: "Safety-first flagship model. 1M context, state-of-the-art SWE-bench Pro planning. Priced at $5.00 / $25.00." },
-      { name: "Claude Sonnet 4.6", note: "Balanced speed/cost workhorse. 1M context. Priced at $3.00 / $15.00." },
-      { name: "Claude Code", note: "Agentic terminal CLI tool. Generated $2.5B annualized revenue by February 2026." },
+      { name: <>Claude Fable 5 & Mythos 5 (June 2026)<Citation id="fable-5-impressions" /></>, note: "Frontier reasoning engines, 1M context. Unsafeguarded Mythos 5 restricted to US government. Priced at $10.00 / $50.00." },
+      { name: <>Claude Opus 4.8 (May 2026)<Citation id="claude-opus-4-8" /></>, note: "Safety-first flagship model. 1M context, state-of-the-art SWE-bench Pro planning. Priced at $5.00 / $25.00." },
+      { name: <>Claude Sonnet 4.6<Citation id="claude-api-pricing" /></>, note: "Balanced speed/cost workhorse. 1M context. Priced at $3.00 / $15.00." },
+      { name: <>Claude Code<Citation id="claude-opus-4-8" /></>, note: "Agentic terminal CLI tool. Generated $2.5B annualized revenue by February 2026." },
     ],
     vision: "Amodei's 'Machines of Loving Grace' details how a safe powerful AI could compress 50–100 years of biomedical progress into 5–10 years. Demands verifiable safety standards (ASL-3) globally.",
     quote: "“A powerful AI — smarter than a Nobel laureate — could arrive as early as 2026 or 2027.” — Dario Amodei",
@@ -73,10 +74,10 @@ const LABS: Lab[] = [
     funding: "Alphabet internal subsidiary; backed by Google's $65B infrastructure CapEx program in 2025.",
     accent: "moss",
     models: [
-      { name: "Gemini 3.5 Flash (May 2026)", note: "Flagship workhorse model with near-Pro intelligence and low-latency agentic capabilities." },
-      { name: "Gemini 3.1 Pro Preview", note: "Premium reasoning flagship, 2M context window with native Deep Think mode. Priced at $2.00 / $12.00 per 1M." },
-      { name: "Gemini 3.1 Flash-Lite", note: "Low-latency, cost-effective automation specialist for high-volume workflows." },
-      { name: "AlphaFold 3 / GNoME", note: "Predicts protein-ligand, DNA/RNA structures and over 520,000 stable crystalline materials." },
+      { name: <>Gemini 3.5 Flash (May 2026)<Citation id="gemini-3-5-flash-guide" /></>, note: "Flagship workhorse model with near-Pro intelligence and low-latency agentic capabilities." },
+      { name: <>Gemini 3.1 Pro Preview<Citation id="gemini-3-5-flash-guide" /></>, note: "Premium reasoning flagship, 2M context window with native Deep Think mode. Priced at $2.00 / $12.00 per 1M." },
+      { name: <>Gemini 3.1 Flash-Lite<Citation id="gemini-3-5-flash-guide" /></>, note: "Low-latency, cost-effective automation specialist for high-volume workflows." },
+      { name: <>AlphaFold 3 / GNoME<Citation id="alphafold-3-transformative" /><Citation id="materials-discovery-gnome" /></>, note: "Predicts protein-ligand, DNA/RNA structures and over 520,000 stable crystalline materials." },
     ],
     vision: "Hassabis claims we are standing in the 'foothills of the singularity' and that AGI will serve as the ultimate multiplier for physics, chemistry, biology, and math proofs.",
     quote: "“AGI is within reach. Five to ten years out. The next decade will be the most exciting in the history of science.” — Demis Hassabis",
@@ -91,8 +92,8 @@ const LABS: Lab[] = [
     funding: "$6B May 2024 round at $24B; $6B Dec 2024 at $50B; $5B Jul 2025 with SpaceX $2B → $113B combined valuation.",
     accent: "ink",
     models: [
-      { name: "Grok 4.3 (early 2026)", note: "Flagship model with native computer-use API, 2M context window, and direct X real-time lookup. Priced at $5.00 / $25.00." },
-      { name: "Grok Build (0.1)", note: "Agentic terminal CLI coding tool, supporting parallel sub-agents and tool execution." },
+      { name: <>Grok 4.3 (early 2026)<Citation id="grok-4-3-announcement" /></>, note: "Flagship model with native computer-use API, 2M context window, and direct X real-time lookup. Priced at $5.00 / $25.00." },
+      { name: <>Grok Build (0.1)<Citation id="grok-4-3-announcement" /></>, note: "Agentic terminal CLI coding tool, supporting parallel sub-agents and tool execution." },
       { name: "Grok 5 (In Training)", note: "Estimated 6T parameter MoE training on Colossus 2 (targeting true AGI)." },
     ],
     vision: "A maximally truth-seeking AI designed to understand the universe. Musk positions xAI as the compute-heavy sovereign alternative, tightly integrated with Tesla robotics and SpaceX launch systems.",
@@ -109,8 +110,8 @@ const LABS: Lab[] = [
     accent: "cobalt",
     models: [
       { name: "Muse Spark (April 2026)", note: "First closed-weights model. Trained using thought-compression RL. Tiered contemplation modes." },
-      { name: "Llama 4 Maverick", note: "400B total / 17B active MoE. Shipped under community weights license with 700M MAU clause." },
-      { name: "Llama 4 Scout", note: "109B total / 17B active MoE. Natively multimodal with a 10M token context window." },
+      { name: <>Llama 4 Maverick<Citation id="best-open-source-2026" /></>, note: "400B total / 17B active MoE. Shipped under community weights license with 700M MAU clause." },
+      { name: <>Llama 4 Scout<Citation id="best-open-source-2026" /></>, note: "109B total / 17B active MoE. Natively multimodal with a 10M token context window." },
     ],
     vision: "Deploying 'personal superintelligence' across Meta Smart Glasses and consumer apps. Releasing open-weights for mid-scale models, but keeping frontier reasoning proprietary to protect value.",
     quote: "“Muse Spark represents a transition to personal superintelligence. It is closed-weights to ensure safety.” — Mark Zuckerberg",
@@ -125,8 +126,8 @@ const LABS: Lab[] = [
     funding: "Self-funded. Raised a historic $7B at a $45B valuation in June 2026 from national and private entities.",
     accent: "ember",
     models: [
-      { name: "DeepSeek-V4-Pro (April 2026)", note: "1.6T total / 49B active MoE, 1M context. Permissive MIT license. Near-zero Flash API pricing." },
-      { name: "DeepSeek-V4-Flash (April 2026)", note: "284B total / 13B active MoE, 1M context window for high-efficiency reasoning." },
+      { name: <>DeepSeek-V4-Pro (April 2026)<Citation id="deepseek-v4-r2" /></>, note: "1.6T total / 49B active MoE, 1M context. Permissive MIT license. Near-zero Flash API pricing." },
+      { name: <>DeepSeek-V4-Flash (April 2026)<Citation id="deepseek-v4-r2" /></>, note: "284B total / 13B active MoE, 1M context window for high-efficiency reasoning." },
       { name: "DeepSeek V3.2", note: "671B total / 37B active MoE. Priced at $0.28 input / $0.42 output per 1M tokens." },
       { name: "DeepSeek-R1", note: "Reasoning model trained with pure RL, scaling test-time compute. AIME math score: 86.7%." },
     ],
@@ -143,8 +144,8 @@ const LABS: Lab[] = [
     funding: "Backed by Alibaba Group's cloud capEx; part of China's $28.3B National Semiconductor Big Fund.",
     accent: "ember",
     models: [
-      { name: "Qwen3.7-Max (May 2026)", note: "Reasoning flagship, 256K context, optimized for 35-hour agent loops. Priced at $2.50 / $7.50." },
-      { name: "Qwen3.7-Plus", note: "Multimodal agent foundation model unifying vision, language, and action planning." },
+      { name: <>Qwen3.7-Max (May 2026)<Citation id="best-open-source-2026" /></>, note: "Reasoning flagship, 256K context, optimized for 35-hour agent loops. Priced at $2.50 / $7.50." },
+      { name: <>Qwen3.7-Plus<Citation id="best-open-source-2026" /></>, note: "Multimodal agent foundation model unifying vision, language, and action planning." },
       { name: "Qwen3-Coder-Next", note: "State-of-the-art coding specialist with advanced tool use and repository-level comprehension." },
     ],
     vision: "Eddie Wu's vision is to make Alibaba Cloud the primary runtime for global AI agents. Open weights for smaller models, closed weights for the absolute frontier.",

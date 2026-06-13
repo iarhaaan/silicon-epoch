@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/data-wall")({
   head: () => ({
@@ -16,22 +17,22 @@ const SECTIONS = [
   {
     n: "01",
     t: "The Human Data Wall",
-    b: "Epoch AI projects that high-quality human-written text data on the public internet was exhausted before 2026. Frontier models are already overtrained by 5× compared to standard compute-optimal levels. Furthermore, publishers are actively withholding access: the MIT Data Provenance Initiative documented a sharp contraction in crawlable content. Cloudflare data shows AI crawler growth slowed from 32% in April 2025 to just 4% in July 2025 as publisher blocking surged, highlighted by Anthropic's lopsided 38,000:1 crawl-to-refer traffic ratio."
+    b: <>Epoch AI projects that high-quality human-written text data on the public internet was exhausted before 2026. Frontier models are already overtrained by 5× compared to standard compute-optimal levels. Furthermore, publishers are actively withholding access: the MIT Data Provenance Initiative documented a sharp contraction in crawlable content. Cloudflare data shows AI crawler growth slowed from 32% in April 2025 to just 4% in July 2025 as publisher blocking surged, highlighted by Anthropic's lopsided 38,000:1 crawl-to-refer traffic ratio<Citation id="synthetic-data-2026" />.</>
   },
   {
     n: "02",
     t: "Test-Time Compute Scaling",
-    b: "As pre-training data hits physical limits, scaling laws have shifted to inference runtime. Reasoning models (OpenAI o1/o3, DeepSeek-R1, Qwen-QwQ) spend 20,000–60,000 thinking tokens per query to execute self-correction and logical search. This has shifted the economic balance: a single query can cost 4–17× more in compute and latency, driving Chinese daily token call volumes to over 140 trillion tokens in Q1 2026, making inference the dominant infrastructure cost."
+    b: <>As pre-training data hits physical limits, scaling laws have shifted to inference runtime. Reasoning models (OpenAI o1/o3, DeepSeek-R1, Qwen-QwQ) spend 20,000–60,000 thinking tokens per query to execute self-correction and logical search<Citation id="reasoning-models-explained" />. This has shifted the economic balance: a single query can cost 4–17× more in compute and latency, driving Chinese daily token call volumes to over 140 trillion tokens in Q1 2026, making inference the dominant infrastructure cost<Citation id="reasoning-token-stack" />.</>
   },
   {
     n: "03",
     t: "Synthetic Data & Self-Play",
-    b: "Hyperscalers are training models on synthetic data. This includes Reinforcement Learning from AI Feedback (RLAIF) under Constitutional AI, self-play distillation (e.g. DeepSeek-R1 generating 800,000 high-quality reasoning examples to train smaller open-source models), and sandbox simulations (generating verifiable data from environment goals, such as training AlphaGeometry 2 on synthetic geometry datasets or agents on Factorio/Minecraft)."
+    b: <>Hyperscalers are training models on synthetic data. This includes Reinforcement Learning from AI Feedback (RLAIF) under Constitutional AI<Citation id="claude-api-pricing" />, self-play distillation (e.g. DeepSeek-R1 generating 800,000 high-quality reasoning examples to train smaller open-source models<Citation id="reasoning-models-explained" />), and sandbox simulations (generating verifiable data from environment goals, such as training AlphaGeometry 2 on synthetic geometry datasets<Citation id="alphageometry-2" /> or agents on Factorio/Minecraft).</>
   },
   {
     n: "04",
     t: "Model Collapse Mitigation",
-    b: "Recursively training models on synthetic data from prior models introduces 'model collapse,' where semantic variance degrades. To mitigate this, labs are combining synthetic generation with ground-truth verification loops: executing generated code in sandboxes to verify syntax, checking mathematical steps with formal proof assistants (Lean), and comparing output trajectories with physical simulators."
+    b: <>Recursively training models on synthetic data from prior models introduces 'model collapse,' where semantic variance degrades. To mitigate this, labs are combining synthetic generation with ground-truth verification loops: executing generated code in sandboxes to verify syntax, checking mathematical steps with formal proof assistants (Lean), and comparing output trajectories with physical simulators<Citation id="synthetic-data-2026" />.</>
   }
 ];
 
@@ -57,7 +58,7 @@ function DataWall() {
               <div>
                 <div className="font-mono text-sm text-ember">{s.n}</div>
                 <h3 className="font-display text-3xl mt-3">{s.t}</h3>
-                <p className="mt-4 text-xs text-foreground/75 leading-relaxed">{s.b}</p>
+                <div className="mt-4 text-xs text-foreground/75 leading-relaxed">{s.b}</div>
               </div>
             </article>
           ))}

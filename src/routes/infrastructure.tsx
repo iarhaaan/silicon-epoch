@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/infrastructure")({
   head: () => ({
@@ -16,21 +17,21 @@ const SUBSTRATES = [
   {
     eyebrow: "The Silicon Hardware",
     title: "Vera Rubin NVL72, Groq 3, & Gaudi 3",
-    body: "AI accelerators are scaling transistor counts and interconnect bandwidth. The NVIDIA Blackwell B300 (192GB HBM3e) is being succeeded by the Vera Rubin NVL72 system (combining 72 Rubin R100 GPUs and 36 Vera CPUs) delivering 3.6 exaflops of FP4 compute. Alternative architectures like the Groq 3 LPX Rack leverage 128GB of aggregate ultra-low latency SRAM to bypass HBM memory bottlenecks entirely.",
+    body: <>AI accelerators are scaling transistor counts and interconnect bandwidth. The NVIDIA Blackwell B300 (192GB HBM3e) is being succeeded by the Vera Rubin NVL72 system (combining 72 Rubin R100 GPUs and 36 Vera CPUs) delivering 3.6 exaflops of FP4 compute<Citation id="rubin-specs" />. Alternative architectures like the Groq 3 LPX Rack leverage 128GB of aggregate ultra-low latency SRAM to bypass HBM memory bottlenecks entirely.</>,
     points: [
-      "NVIDIA Rubin R100: 336B transistors, 288GB HBM4, 22 TB/s bandwidth, 50 PFLOPS FP4 compute.",
-      "Intel Gaudi 3: 1,835 TFLOPS BF16, 128GB HBM2e, 3.7 TB/s bandwidth, priced disruptively at $15,625.",
-      "Groq 3 LPX Rack: 256 LPUs, 500MB SRAM each (128GB aggregate), 640 TB/s scale-up bandwidth.",
+      <>NVIDIA Rubin R100: 336B transistors, 288GB HBM4, 22 TB/s bandwidth, 50 PFLOPS FP4 compute.<Citation id="rubin-transistors" /><Citation id="rubin-specs" /></>,
+      <>Intel Gaudi 3: 1,835 TFLOPS BF16, 128GB HBM2e, 3.7 TB/s bandwidth, priced disruptively at $15,625.<Citation id="gaudi-3-specs" /><Citation id="gaudi-3-deployment" /></>,
+      <>Groq 3 LPX Rack: 256 LPUs, 500MB SRAM each (128GB aggregate), 640 TB/s scale-up bandwidth.</>,
     ]
   },
   {
     eyebrow: "The Gigawatt Campuses",
     title: "From Megawatts to Dedicated Power Grids",
-    body: "Datacenter design has scaled past the megawatt envelope into multi-gigawatt campuses. Building queues for regional utility connections stretch up to five years, prompting AI developers to build their own generation infrastructure on-site, pre-leasing 60% of the 35 GW under construction in North America.",
+    body: <>Datacenter design has scaled past the megawatt envelope into multi-gigawatt campuses. Building queues for regional utility connections stretch up to five years, prompting AI developers to build their own generation infrastructure on-site, pre-leasing 60% of the 35 GW under construction in North America.<Citation id="meta-data-centers-gamble" /></>,
     points: [
-      "Meta Prometheus & Hyperion: 1 GW Prometheus online by 2027 in Ohio; 5 GW Hyperion campus in Louisiana with $3B on-site gas generation.",
-      "xAI Colossus (Memphis): Running 100K H100s (150MW), expanding to 200K, with a long-term roadmap targeting 1M GPUs.",
-      "Microsoft & Google Buildouts: Microsoft Wisconsin ($7B) and Texas (2.1 GW); Google Oklahoma ($9B) and Michigan (1 GW).",
+      <>Meta Prometheus & Hyperion: 1 GW Prometheus online by 2027 in Ohio; 5 GW Hyperion campus in Louisiana with $3B on-site gas generation.<Citation id="meta-data-centers-gamble" /></>,
+      <>xAI Colossus (Memphis): Running 100K H100s (150MW), expanding to 200K, with a long-term roadmap targeting 1M GPUs.<Citation id="grok-4-3-announcement" /></>,
+      <>Microsoft & Google Buildouts: Microsoft Wisconsin ($7B) and Texas (2.1 GW); Google Oklahoma ($9B) and Michigan (1 GW).</>,
     ]
   },
 ];
@@ -41,21 +42,21 @@ const NUCLEAR_DEALS = [
     partners: "Constellation / Microsoft",
     capacity: "835 MW",
     timeline: "Restart 2027",
-    details: "Three Mile Island Unit 1 restart. $1.6B cost supported by a $1B DOE loan; secured under a 20-year Microsoft PPA.",
+    details: <>Three Mile Island Unit 1 restart. $1.6B cost supported by a $1B DOE loan; secured under a 20-year Microsoft PPA.<Citation id="crane-tmi-restart" /><Citation id="tmi-1bn-loan" /></>,
   },
   {
     project: "Kairos Power SMRs",
     partners: "Google / Kairos",
     capacity: "500 MW",
     timeline: "First deployment 2030",
-    details: "Hermes 2 SMR fleet (molten salt-cooled) in Oak Ridge, TN. First corporate Small Modular Reactor power purchase agreement.",
+    details: <>Hermes 2 SMR fleet (molten salt-cooled) in Oak Ridge, TN. First corporate Small Modular Reactor power purchase agreement.<Citation id="google-kairos-smr" /></>,
   },
   {
     project: "Susquehanna Nuclear Campus",
     partners: "Amazon / Talen Energy",
     capacity: "1,920 MW",
     timeline: "Through 2042",
-    details: "17-year PPA with front-of-the-meter grid transition in Spring 2026. Part of a $20B Amazon infrastructure investment.",
+    details: <>17-year PPA with front-of-the-meter grid transition in Spring 2026. Part of a $20B Amazon infrastructure investment.<Citation id="amazon-susquehanna" /><Citation id="talen-amazon-ans" /></>,
   },
   {
     project: "Helion Fusion PPA",
@@ -99,8 +100,8 @@ function Infrastructure() {
             <div className="lg:col-span-8">
               <p className="text-base text-foreground/80 leading-relaxed">{s.body}</p>
               <ul className="mt-6 space-y-3">
-                {s.points.map((p) => (
-                  <li key={p} className="flex gap-3">
+                {s.points.map((p, idx) => (
+                  <li key={idx} className="flex gap-3">
                     <span className="text-ember mt-1 text-xs">▸</span>
                     <span className="text-xs text-foreground/85 leading-relaxed">{p}</span>
                   </li>

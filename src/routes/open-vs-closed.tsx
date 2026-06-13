@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/open-vs-closed")({
   head: () => ({
@@ -15,8 +16,8 @@ export const Route = createFileRoute("/open-vs-closed")({
 const COMPARISON = [
   {
     feature: "Weights Accessibility",
-    closed: "Proprietary. Model weights reside entirely on the lab's secure infrastructure; users lease cognitive access via API queries.",
-    open: "Downloadable weights under open-source (Apache 2.0) or modified commercial licenses (e.g., Llama 4 Community License, DeepSeek MIT).",
+    closed: <>Proprietary. Model weights reside entirely on the lab's secure infrastructure; users lease cognitive access via API queries.<Citation id="gpt-5-5-announcement" /></>,
+    open: <>Downloadable weights under open-source (Apache 2.0) or modified commercial licenses (e.g., Llama 4 Community License, DeepSeek MIT).<Citation id="best-open-source-2026" /></>,
     winner: "Open (for local execution and sovereignty)"
   },
   {
@@ -27,14 +28,14 @@ const COMPARISON = [
   },
   {
     feature: "Inference Economics",
-    closed: "Premium token-based pricing margins. GPT-5.5 priced at $5.00 / $30.00 per 1M. Subject to hyperscaler price floors.",
-    open: "Highly economical. DeepSeek V3.2 priced at $0.28 / $0.42 per 1M, while Flash APIs operate near-zero. 10-100× cheaper inference.",
+    closed: <>Premium token-based pricing margins. GPT-5.5 priced at $5.00 / $30.00 per 1M. Subject to hyperscaler price floors.<Citation id="gpt-5-5-announcement" /></>,
+    open: <>Highly economical. DeepSeek V3.2 priced at $0.28 / $0.42 per 1M, while Flash APIs operate near-zero. 10-100× cheaper inference.<Citation id="chinese-ai-market" /></>,
     winner: "Open (for high-volume agent swarms)"
   },
   {
     feature: "Licensing Restrictions",
     closed: "Subject to lab terms of service. No commercial reuse limitations other than standard API usage agreements.",
-    open: "DeepSeek/Qwen are MIT/Apache 2.0. Llama 4 Community License restricts commercial use above 700M monthly active users.",
+    open: <>DeepSeek/Qwen are MIT/Apache 2.0. Llama 4 Community License restricts commercial use above 700M monthly active users.<Citation id="best-open-source-2026" /></>,
     winner: "Variable (MIT/Apache vs. Walled Garden)"
   }
 ];
@@ -43,23 +44,23 @@ const MODELS_SIDE = [
   {
     category: "Reasoning & Coding Flagships",
     closedModel: "Claude Fable 5 / GPT-5.5",
-    closedStats: "SWE-bench Pro: 80.3% (Fable 5) / 58.6% (GPT-5.5) · GPQA: 94.5% (Fable 5)",
+    closedStats: <>SWE-bench Pro: 80.3% (Fable 5) / 58.6% (GPT-5.5) · GPQA: 94.5% (Fable 5)<Citation id="best-ai-coding-2026" /></>,
     openModel: "DeepSeek-V4-Pro / Qwen3.7-Max",
-    openStats: "SWE-bench Pro: 55.4% (V4 Pro) / ~54% (Qwen3.7-Max) · GPQA: 92.4%"
+    openStats: <>SWE-bench Pro: 55.4% (V4 Pro) / ~54% (Qwen3.7-Max) · GPQA: 92.4%<Citation id="best-ai-coding-2026" /></>
   },
   {
     category: "API Pricing (per 1M tokens)",
     closedModel: "Claude Fable 5",
-    closedStats: "Input: $10.00 / Output: $50.00",
+    closedStats: <>Input: $10.00 / Output: $50.00<Citation id="claude-api-pricing" /></>,
     openModel: "DeepSeek V3.2",
-    openStats: "Input: $0.28 / Output: $0.42"
+    openStats: <>Input: $0.28 / Output: $0.42<Citation id="chinese-ai-market" /></>
   },
   {
     category: "Maximum Context Windows",
     closedModel: "Gemini 3.1 Pro",
-    closedStats: "2,000,000 tokens (lossless needle-in-a-haystack)",
+    closedStats: <>2,000,000 tokens (lossless needle-in-a-haystack)<Citation id="gemini-3-5-flash-guide" /></>,
     openModel: "Llama 4 Scout",
-    openStats: "10,000,000 tokens (Sparse Attention / open weights)"
+    openStats: <>10,000,000 tokens (Sparse Attention / open weights)<Citation id="best-open-source-2026" /></>
   }
 ];
 

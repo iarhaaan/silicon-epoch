@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 import {
   OpenAILogo,
   AnthropicLogo,
@@ -30,10 +31,10 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { k: "78%", v: "Of organisations regularly use generative AI, up from 55% in 2023 (McKinsey 2025)" },
-  { k: "140T", v: "Daily token volume call rate in China as of Q1 2026 — a 1,400× jump in two years" },
-  { k: "80.3%", v: "Top score on SWE-bench Pro (Claude Fable 5, June 2026) — up from ~10% two years ago" },
-  { k: "$2.5B", v: "Claude Code's annualized revenue in February 2026 — just 9 months post-release" },
+  { k: "78%", v: <>Of organisations regularly use generative AI, up from 55% in 2023 (McKinsey 2025)<Citation id="mckinsey-genai-2025" /></> },
+  { k: "140T", v: <>Daily token volume call rate in China as of Q1 2026 — a 1,400× jump in two years<Citation id="reasoning-token-stack" /></> },
+  { k: "80.3%", v: <>Top score on SWE-bench Pro (Claude Fable 5, June 2026) — up from ~10% two years ago<Citation id="best-ai-coding-2026" /></> },
+  { k: "$2.5B", v: <>Claude Code's annualized revenue in February 2026 — just 9 months post-release<Citation id="claude-opus-4-8" /></> },
 ];
 
 const PILLARS = [
@@ -184,7 +185,7 @@ function Index() {
           {STATS.map((s) => (
             <div key={s.k}>
               <div className="font-display text-6xl text-ember">{s.k}</div>
-              <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{s.v}</p>
+              <div className="mt-3 text-sm text-foreground/70 leading-relaxed">{s.v}</div>
             </div>
           ))}
         </div>
@@ -278,16 +279,16 @@ function Index() {
         <div className="eyebrow">What the builders are saying</div>
         <div className="mt-8 grid md:grid-cols-3 gap-10">
           {[
-            { q: "We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.", who: "Sam Altman · OpenAI · May 2026" },
-            { q: "We are near the end of the exponential — a few years away from a country of geniuses in a data center.", who: "Dario Amodei · Anthropic · Feb 2026" },
-            { q: "We are standing in the foothills of the singularity. Society has only a few years left to prepare.", who: "Demis Hassabis · Google DeepMind · May 2026" },
-            { q: "Digital superintelligence is coming. xAI is positioning Colossus 2 and Grok 5 to achieve true AGI.", who: "Elon Musk · xAI · 2026" },
-            { q: "LLMs will not lead to AGI. Objective-driven world models are the true path forward.", who: "Yann LeCun · AMI Labs · Feb 2026" },
-            { q: "We are not here to win a price war. We are here to push the boundary of intelligence, raising $7B to build open weights.", who: "Liang Wenfeng · DeepSeek · June 2026" },
+            { q: "We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.", who: <>Sam Altman · OpenAI · May 2026<Citation id="gpt-5-5-announcement" /></> },
+            { q: "We are near the end of the exponential — a few years away from a country of geniuses in a data center.", who: <>Dario Amodei · Anthropic · Feb 2026<Citation id="fable-5-impressions" /></> },
+            { q: "We are standing in the foothills of the singularity. Society has only a few years left to prepare.", who: <>Demis Hassabis · Google DeepMind · May 2026<Citation id="gemini-3-5-flash-guide" /></> },
+            { q: "Digital superintelligence is coming. xAI is positioning Colossus 2 and Grok 5 to achieve true AGI.", who: <>Elon Musk · xAI · 2026<Citation id="grok-4-3-announcement" /></> },
+            { q: "LLMs will not lead to AGI. Objective-driven world models are the true path forward.", who: <>Yann LeCun · AMI Labs · Feb 2026<Citation id="best-open-source-2026" /></> },
+            { q: "We are not here to win a price war. We are here to push the boundary of intelligence, raising $7B to build open weights.", who: <>Liang Wenfeng · DeepSeek · June 2026<Citation id="deepseek-v4-r2" /></> },
           ].map((c) => (
-            <figure key={c.who} className="border-t border-border pt-6">
+            <figure key={c.q} className="border-t border-border pt-6">
               <blockquote className="font-display text-2xl leading-snug">“{c.q}”</blockquote>
-              <figcaption className="mt-4 eyebrow text-foreground/60">{c.who}</figcaption>
+              <figcaption className="mt-4 eyebrow text-foreground/60 flex items-center gap-1">{c.who}</figcaption>
             </figure>
           ))}
         </div>

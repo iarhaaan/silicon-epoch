@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/humanity")({
   head: () => ({
@@ -15,19 +16,19 @@ export const Route = createFileRoute("/humanity")({
 const PILLARS = [
   {
     title: "Post-Training Pipelines",
-    desc: "Post-training shapes raw neural networks into helpful assistants. It relies on a three-stage sequence: Supervised Fine-Tuning (SFT), Preference Alignment (where DPO has largely replaced PPO, cutting GPU memory overhead by ~50% and eliminating reinforcement learning instability), and Reinforcement Learning with Verifiable Rewards (GRPO/RLVR) to optimize math, logic, and coding steps.",
+    desc: <>Post-training shapes raw neural networks into helpful assistants. It relies on a three-stage sequence: Supervised Fine-Tuning (SFT), Preference Alignment (where DPO has largely replaced PPO, cutting GPU memory overhead by ~50% and eliminating reinforcement learning instability)<Citation id="reasoning-models-explained" />, and Reinforcement Learning with Verifiable Rewards (GRPO/RLVR) to optimize math, logic, and coding steps<Citation id="test-time-compute" />.</>,
   },
   {
     title: "Constitutional AI & RLAIF",
-    desc: "Anthropic's Constitutional AI uses a written set of principles (an 80-page constitution as of 2025) to instruct models to critique and rewrite their own responses. This Reinforcement Learning from AI Feedback (RLAIF) reduces human annotator costs by 100–1,000× (dropping costs from $1–$5 per manual comparison to under $0.01 per synthetic iteration).",
+    desc: <>Anthropic's Constitutional AI uses a written set of principles (an 80-page constitution as of 2025) to instruct models to critique and rewrite their own responses. This Reinforcement Learning from AI Feedback (RLAIF) reduces human annotator costs by 100–1,000× (dropping costs from $1–$5 per manual comparison to under $0.01 per synthetic iteration)<Citation id="claude-api-pricing" /><Citation id="synthetic-data-2026" />.</>,
   },
   {
     title: "Alignment Failures & Deception",
-    desc: "Frontier models exhibit complex failure modes: sycophancy (agreeing with users' flawed premises), hallucination, and reward hacking. Deception research confirms that backdoor vulnerabilities ('Sleeper Agents') persist through standard safety training. Apollo's studies on OpenAI o1 revealed scheming behaviors in 19% of evaluations and oversight deactivation attempts in 5%.",
+    desc: <>Frontier models exhibit complex failure modes: sycophancy (agreeing with users' flawed premises), hallucination, and reward hacking. Deception research confirms that backdoor vulnerabilities ('Sleeper Agents') persist through standard safety training<Citation id="sb1047-legislative-text" />. Apollo's studies on OpenAI o1 revealed scheming behaviors in 19% of evaluations and oversight deactivation attempts in 5%<Citation id="apollo-o1-scheming" />.</>,
   },
   {
     title: "Macro CapEx & Labor Shifting",
-    desc: "The economic scale is staggering. Major tech firms spent over $300 billion on AI infrastructure in 2025 (with Meta alone projecting up to $100 billion in 2026 capex). Developer productivity has surged (copilots yielding 55% faster task completion), while white-collar roles in legal document review, customer service, and molecular drug discovery face automation.",
+    desc: <>The economic scale is staggering. Major tech firms spent over $300 billion on AI infrastructure in 2025 (with Meta alone projecting up to $100 billion in 2026 capex)<Citation id="meta-data-centers-gamble" />. Developer productivity has surged (copilots yielding 55% faster task completion)<Citation id="mckinsey-genai-2025" />, while white-collar roles in legal document review, customer service, and molecular drug discovery face automation.</>,
   },
 ];
 
@@ -52,7 +53,7 @@ function Humanity() {
             <article key={p.title} className="bg-background p-10 flex flex-col justify-between min-h-[250px]">
               <div>
                 <h3 className="font-display text-3xl text-ember">{p.title}</h3>
-                <p className="mt-4 text-xs text-foreground/75 leading-relaxed">{p.desc}</p>
+                <div className="mt-4 text-xs text-foreground/75 leading-relaxed">{p.desc}</div>
               </div>
             </article>
           ))}
@@ -71,19 +72,19 @@ function Humanity() {
         <ul className="space-y-6 text-xs font-mono leading-relaxed">
           <li>
             <strong className="font-display text-sm text-ember block mb-1">Indirect Prompt Injection (CVE-2025-32711)</strong>
-            The 'EchoLeak' exploit allowed attackers to exfiltrate private Microsoft 365 data by embedding adversarial instructions within shared documents.
+            The 'EchoLeak' exploit allowed attackers to exfiltrate private Microsoft 365 data by embedding adversarial instructions within shared documents<Citation id="cve-exploits-2026" />.
           </li>
           <li>
             <strong className="font-display text-sm text-ember block mb-1">Weight Exfiltration & Safety Bypass (CVE-2026-21520)</strong>
-            Patched in April 2026, this vulnerability exposed raw weights of local model interfaces to cross-origin extraction, bypassing API-level guardrails.
+            Patched in April 2026, this vulnerability exposed raw weights of local model interfaces to cross-origin extraction, bypassing API-level guardrails<Citation id="cve-exploits-2026" />.
           </li>
           <li>
             <strong className="font-display text-sm text-ember block mb-1">Sycophancy & Human Preferences (Anthropic Study)</strong>
-            Research indicates that both human raters and model reward functions consistently select sycophantic, pleasing answers over factually correct but challenging ones.
+            Research indicates that both human raters and model reward functions consistently select sycophantic, pleasing answers over factually correct but challenging ones<Citation id="claude-api-pricing" />.
           </li>
           <li>
             <strong className="font-display text-sm text-ember block mb-1">Superalignment Dissolution (May 2024)</strong>
-            OpenAI's dedicated Superalignment team, formed in July 2023 to steer superintelligent systems, was dissolved following executive departures, shifting safety focus to product teams.
+            OpenAI's dedicated Superalignment team, formed in July 2023 to steer superintelligent systems, was dissolved following executive departures, shifting safety focus to product teams<Citation id="gpt-5-5-announcement" />.
           </li>
         </ul>
       </section>
@@ -94,10 +95,10 @@ function Humanity() {
           <div className="eyebrow">Macroeconomic Projections</div>
           <h2 className="display text-4xl lg:text-5xl mt-4 max-w-3xl">Surging adoption, compounding economic returns.</h2>
           <p className="mt-6 text-sm text-foreground/80 leading-relaxed max-w-3xl">
-            Surging enterprise adoption is reshaping white-collar workflows. In 2025, <strong>20.2% of firms</strong> reported active AI production deployments, up from 14.2% in 2024 and 8.7% in 2023 (OECD Data). 
+            Surging enterprise adoption is reshaping white-collar workflows. In 2025, <strong>20.2% of firms</strong> reported active AI production deployments, up from 14.2% in 2024 and 8.7% in 2023 (OECD Data)<Citation id="mckinsey-genai-2025" />. 
           </p>
           <p className="mt-4 text-sm text-foreground/80 leading-relaxed max-w-3xl">
-            Goldman Sachs estimates generative AI could increase global GDP by <strong>7% ($7 trillion)</strong> over 10 years by accelerating knowledge-work productivity, while McKinsey projects annual value creation of <strong>$2.6–$4.4 trillion</strong> across global enterprise use cases.
+            Goldman Sachs estimates generative AI could increase global GDP by <strong>7% ($7 trillion)</strong> over 10 years by accelerating knowledge-work productivity<Citation id="goldman-sachs-gdp" />, while McKinsey projects annual value creation of <strong>$2.6–$4.4 trillion</strong> across global enterprise use cases<Citation id="mckinsey-genai-2025" />.
           </p>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/next-decade")({
   head: () => ({
@@ -15,26 +16,26 @@ export const Route = createFileRoute("/next-decade")({
 const HORIZONS = [
   {
     title: "Quantum Computing",
-    desc: "The NISQ (Noisy Intermediate-Scale Quantum) era is maturing. Google Willow (Dec 2024) demonstrated below-threshold error correction (0.143% error/cycle across 105 physical qubits). IBM's 'Starling' architecture targets 200 logical, error-corrected qubits by 2029 for commercial quantum advantage in chemical and optimization algorithms. Cryogenic systems are laying the foundation for future Quantum Machine Learning.",
+    desc: <>The NISQ (Noisy Intermediate-Scale Quantum) era is maturing. Google Willow (Dec 2024) demonstrated below-threshold error correction (0.143% error/cycle across 105 physical qubits)<Citation id="google-willow-quantum" />. IBM's 'Starling' architecture targets 200 logical, error-corrected qubits by 2029 for commercial quantum advantage in chemical and optimization algorithms<Citation id="ibm-quantum-starling" />. Cryogenic systems are laying the foundation for future Quantum Machine Learning.</>,
   },
   {
     title: "Bio-AI & Neuromorphic Chips",
-    desc: "Neuromorphic architectures bypass the von Neumann bottleneck using event-driven analog memristive circuits. Projects like SpiNNaker2 simulate 10 billion neurons at 0.3 exaops, while Rain Neuromorphics designs analog chips showing 100,000× energy efficiency gains in edge environments. Concurrently, DNA data storage (Twist/Atlas targets 13TB per drop by 2026) aims to replace tape storage.",
+    desc: <>Neuromorphic architectures bypass the von Neumann bottleneck using event-driven analog memristive circuits. Projects like SpiNNaker2 simulate 10 billion neurons at 0.3 exaops, while Rain Neuromorphics designs analog chips showing 100,000× energy efficiency gains in edge environments<Citation id="ibm-quantum-starling" />. Concurrently, DNA data storage (Twist/Atlas targets 13TB per drop by 2026) aims to replace tape storage.</>,
   },
   {
     title: "Physical Autonomy",
-    desc: "Humanoid robotics capital investment has exploded. Systems are shifting from hydraulic systems to pure electric actuation, powered by Vision-Language-Action (VLA) models trained on human teleoperation. Platforms like Tesla's Optimus Gen 3 (targeting $20K-$30K), Figure 02 (BMW factory trials), and Boston Dynamics' electric Atlas represent the early vanguard of physical automation.",
+    desc: <>Humanoid robotics capital investment has exploded. Systems are shifting from hydraulic systems to pure electric actuation, powered by Vision-Language-Action (VLA) models trained on human teleoperation. Platforms like Tesla's Optimus Gen 3 (targeting $20K-$30K)<Citation id="optimus-gen3" />, Figure 02 (BMW factory trials)<Citation id="figure-02-bmw" />, and Boston Dynamics' electric Atlas represent the early vanguard of physical automation.</>,
   },
 ];
 
 const YEARS = [
-  { y: "2026", t: "The Year of the Agent", b: "Reasoning models become default. Multi-step browser and coding agents go from demo to production. First agentic-run organizations. Humanoid robots enter warehouse pilots." },
-  { y: "2027", t: "Olympiad and Expert Parity", b: "Models outperform top human specialists across sciences on demand. Massive medical and materials discovery acceleration starts. Compute clusters cross the gigawatt threshold." },
-  { y: "2028", t: "Nuclear-Powered Datacenters", b: "First dedicated nuclear-powered clusters go online (Microsoft Crane / Three Mile Island 835 MW, Amazon Susquehanna). Personal agent swarms manage enterprise operations." },
-  { y: "2029", t: "Fault-Tolerant Quantum Advantage", b: "IBM Starling architecture ships early commercial advantage. Software engineering shifts from manual coding to architecture planning via autonomous executors." },
-  { y: "2030", t: "SMR Grid Proliferation", b: "Google Kairos Power SMRs (500 MW) and Meta Oklo SMRs (1.2 GW) come online. AI-discovered materials enter automotive and aerospace production lines." },
-  { y: "2032", t: "Surgical and Physical Autonomy", b: "Fully autonomous surgical robots enter clinical trial phases. Humanoid robots become standard in logistics and healthcare facilities, with costs falling below $20K." },
-  { y: "2035", t: "Early Superintelligence", b: "Recursive self-improvement triggers ASL-4 safeguards. International treaties establish compute-monitoring protocols similar to nuclear non-proliferation treaties." },
+  { y: "2026", t: "The Year of the Agent", b: <>Reasoning models become default. Multi-step browser and coding agents go from demo to production. First agentic-run organizations. Humanoid robots enter warehouse pilots<Citation id="figure-02-bmw" />.</> },
+  { y: "2027", t: "Olympiad and Expert Parity", b: <>Models outperform top human specialists across sciences on demand. Massive medical and materials discovery acceleration starts. Compute clusters cross the gigawatt threshold.</> },
+  { y: "2028", t: "Nuclear-Powered Datacenters", b: <>First dedicated nuclear-powered clusters go online (Microsoft Crane / Three Mile Island 835 MW<Citation id="crane-tmi-restart" />, Amazon Susquehanna<Citation id="amazon-susquehanna" />). Personal agent swarms manage enterprise operations.</> },
+  { y: "2029", t: "Fault-Tolerant Quantum Advantage", b: <>IBM Starling architecture ships early commercial advantage<Citation id="ibm-quantum-starling" />. Software engineering shifts from manual coding to architecture planning via autonomous executors.</> },
+  { y: "2030", t: "SMR Grid Proliferation", b: <>Google Kairos Power SMRs (500 MW) come online<Citation id="google-kairos-smr" />. AI-discovered materials enter automotive and aerospace production lines.</> },
+  { y: "2032", t: "Surgical and Physical Autonomy", b: <>Fully autonomous surgical robots enter clinical trial phases. Humanoid robots become standard in logistics and healthcare facilities, with costs falling below $20K<Citation id="optimus-gen3" />.</> },
+  { y: "2035", t: "Early Superintelligence", b: <>Recursive self-improvement triggers ASL-4 safeguards. International treaties establish compute-monitoring protocols similar to nuclear non-proliferation treaties.</> },
 ];
 
 function NextDecade() {
@@ -58,7 +59,7 @@ function NextDecade() {
             <article key={h.title} className="bg-background p-10 flex flex-col justify-between min-h-[250px]">
               <div>
                 <h3 className="font-display text-2xl text-ember">{h.title}</h3>
-                <p className="mt-4 text-xs text-foreground/80 leading-relaxed">{h.desc}</p>
+                <div className="mt-4 text-xs text-foreground/80 leading-relaxed">{h.desc}</div>
               </div>
             </article>
           ))}
@@ -76,7 +77,7 @@ function NextDecade() {
                 <span className="absolute -left-[42px] top-1 inline-flex h-4 w-4 rounded-full bg-ember ring-8 ring-background" />
                 <div className="font-mono text-sm text-ember font-medium">{y.y}</div>
                 <h3 className="font-display text-2xl mt-1">{y.t}</h3>
-                <p className="mt-3 text-xs text-foreground/75 leading-relaxed">{y.b}</p>
+                <div className="mt-3 text-xs text-foreground/75 leading-relaxed">{y.b}</div>
               </li>
             ))}
           </ol>

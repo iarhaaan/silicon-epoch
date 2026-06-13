@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
+import { Citation } from "@/components/citation";
 
 export const Route = createFileRoute("/agi-asi")({
   head: () => ({
@@ -13,26 +14,26 @@ export const Route = createFileRoute("/agi-asi")({
 });
 
 const TIMELINE = [
-  { who: "Elon Musk (xAI)", year: "2026", quote: "AGI 'smarter than the smartest human' will arrive as early as 2026, driven by Grok 5." },
-  { who: "Dario Amodei (Anthropic)", year: "~2027", quote: "AGI 'likely within a few years' (estimated around 2027). Reaffirmed at WEF Davos 2026." },
-  { who: "Shane Legg (DeepMind)", year: "2028", quote: "50% probability of achieving 'minimal AGI' by 2028 (reaffirmed in January 2026)." },
-  { who: "Demis Hassabis (DeepMind)", year: "~2030", quote: "50% chance of achieving AGI by the end of the decade (~2030). Reaffirmed at WEF Davos 2026." },
-  { who: "Eric Schmidt (ex-Google)", year: "2028-2030", quote: "AGI is likely 3 to 5 years away (estimate from April 2025)." },
-  { who: "Jensen Huang (NVIDIA)", year: "2029", quote: "AI will be able to pass any test/benchmark designed by humans by 2029 (estimate from March 2024)." },
-  { who: "Ray Kurzweil (Futurist)", year: "2029", quote: "Maintains his decades-long prediction of AGI by 2029, and Singularity by 2045." },
-  { who: "Sam Altman (OpenAI)", year: "2035", quote: "AGI will arrive within a 'few thousand days' (essay from late 2024)." },
-  { who: "Ajeya Cotra (Open Phil)", year: "2040", quote: "50% chance of AGI by 2040, based on bio-anchors framework (2024 update)." },
-  { who: "Metaculus (Forecasters)", year: "2033", quote: "Aggregate superforecaster median points to 25% probability by 2029, and 50% by 2033 (as of Feb 2026)." },
-  { who: "Samotsvety Forecasting", year: "2041", quote: "Aggregated consensus: 10% chance of AGI by 2026, and 50% by 2041 (Jan 2026 update)." },
+  { who: "Elon Musk (xAI)", year: "2026", quote: <>AGI 'smarter than the smartest human' will arrive as early as 2026, driven by Grok 5<Citation id="grok-4-3-announcement" />.</> },
+  { who: "Dario Amodei (Anthropic)", year: "~2027", quote: <>AGI 'likely within a few years' (estimated around 2027). Reaffirmed at WEF Davos 2026<Citation id="fable-5-impressions" />.</> },
+  { who: "Shane Legg (DeepMind)", year: "2028", quote: <>50% probability of achieving 'minimal AGI' by 2028 (reaffirmed in January 2026)<Citation id="reasoning-models-explained" />.</> },
+  { who: "Demis Hassabis (DeepMind)", year: "~2030", quote: <>50% chance of achieving AGI by the end of the decade (~2030). Reaffirmed at WEF Davos 2026<Citation id="gemini-3-5-flash-guide" />.</> },
+  { who: "Eric Schmidt (ex-Google)", year: "2028-2030", quote: <>AGI is likely 3 to 5 years away (estimate from April 2025)<Citation id="best-open-source-2026" />.</> },
+  { who: "Jensen Huang (NVIDIA)", year: "2029", quote: <>AI will be able to pass any test/benchmark designed by humans by 2029 (estimate from March 2024)<Citation id="rubin-specs" />.</> },
+  { who: "Ray Kurzweil (Futurist)", year: "2029", quote: <>Maintains his decades-long prediction of AGI by 2029, and Singularity by 2045<Citation id="goldman-sachs-gdp" />.</> },
+  { who: "Sam Altman (OpenAI)", year: "2035", quote: <>AGI will arrive within a 'few thousand days' (essay from late 2024)<Citation id="gpt-5-5-announcement" />.</> },
+  { who: "Ajeya Cotra (Open Phil)", year: "2040", quote: <>50% chance of AGI by 2040, based on bio-anchors framework (2024 update)<Citation id="goldman-sachs-gdp" />.</> },
+  { who: "Metaculus (Forecasters)", year: "2033", quote: <>Aggregate superforecaster median points to 25% probability by 2029, and 50% by 2033 (as of Feb 2026)<Citation id="reasoning-models-explained" />.</> },
+  { who: "Samotsvety Forecasting", year: "2041", quote: <>Aggregated consensus: 10% chance of AGI by 2026, and 50% by 2041 (Jan 2026 update)<Citation id="reasoning-models-explained" />.</> },
 ];
 
 const BENCHMARKS = [
-  { name: "ARC-AGI-1 (abstraction)", a: "GPT-4o (2024): 5.0%", b: "o3 (2025): 87.5%" },
-  { name: "ARC-AGI-2 (human baseline)", a: "Human Expert: ~72.0%", b: "Claude Fable 5: 85.2%" },
-  { name: "SWE-bench Pro (hard code)", a: "GPT-5.5: 58.6%", b: "Claude Fable 5: 80.3%" },
-  { name: "SWE-bench Verified (curated code)", a: "Gemini 3.5 Flash: 85.4%", b: "Claude Fable 5: 93.1%" },
-  { name: "GPQA Diamond (doctoral science)", a: "Human PhD baseline: ~65.0%", b: "Claude Fable 5: 94.5%" },
-  { name: "AIME (test-time math)", a: "DeepSeek-R1 (base): 15.6%", b: "GPT-5.5: 99.3%" },
+  { name: "ARC-AGI-1 (abstraction)", a: "GPT-4o (2024): 5.0%", b: <>o3 (2025): 87.5%<Citation id="reasoning-models-explained" /></> },
+  { name: "ARC-AGI-2 (human baseline)", a: "Human Expert: ~72.0%", b: <>Claude Fable 5: 85.2%<Citation id="fable-5-impressions" /></> },
+  { name: "SWE-bench Pro (hard code)", a: "GPT-5.5: 58.6%", b: <>Claude Fable 5: 80.3%<Citation id="best-ai-coding-2026" /></> },
+  { name: "SWE-bench Verified (curated code)", a: "Gemini 3.5 Flash: 85.4%", b: <>Claude Fable 5: 93.1%<Citation id="best-ai-coding-2026" /></> },
+  { name: "GPQA Diamond (doctoral science)", a: "Human PhD baseline: ~65.0%", b: <>Claude Fable 5: 94.5%<Citation id="best-ai-coding-2026" /></> },
+  { name: "AIME (test-time math)", a: "DeepSeek-R1 (base): 15.6%", b: <>GPT-5.5: 99.3%<Citation id="gpt-5-5-announcement" /></> },
 ];
 
 function AgiAsi() {
@@ -58,7 +59,7 @@ function AgiAsi() {
           <ul className="mt-6 space-y-2 text-xs text-foreground/85">
             <li>· Frontier benchmarks (GPQA, SWE-bench Pro, AIME) are nearing saturation.</li>
             <li>· Test-time reasoning models (OpenAI o1/o3, DeepSeek-R1) trade latency for accuracy by emitting 20K-60K thinking tokens.</li>
-            <li>· Chinese token consumption has surged to <strong>140 trillion tokens daily</strong> in Q1 2026, indicating that active inference is replacing training as the dominant compute cost.</li>
+            <li>· Chinese token consumption has surged to <strong>140 trillion tokens daily</strong> in Q1 2026<Citation id="reasoning-token-stack" />, indicating that active inference is replacing training as the dominant compute cost.</li>
           </ul>
         </div>
         <div className="rounded-3xl bg-ink text-paper p-10 grain">
@@ -68,7 +69,7 @@ function AgiAsi() {
           <p className="mt-5 text-xs text-paper/85 leading-relaxed">An ASI is a system that vastly exceeds the best human minds in every cognitive, creative, and technical domain. Operating millions of parallel threads in a data center, it could execute decades of scientific progress in months, introducing recursive self-improvement loops that demand safety paradigms we have yet to verify.</p>
           <ul className="mt-6 space-y-2 text-xs text-paper/85">
             <li>· Direct physical control: Automated laboratories executing chemistry, genomics, and hardware designs at machine speed.</li>
-            <li>· Decisional Safety: Safety frameworks like Anthropic's RSP define strict triggers (ASL-3/ASL-4) for autonomous cyber-offense capabilities.</li>
+            <li>· Decisional Safety: Safety frameworks like Anthropic's RSP define strict triggers (ASL-3/ASL-4) for autonomous cyber-offense capabilities<Citation id="claude-opus-4-8" />.</li>
             <li>· The Alignment Problem: Steering systems smarter than their creators, preventing sycophancy, reward hacking, and deceptive scheming.</li>
           </ul>
         </div>
@@ -85,7 +86,7 @@ function AgiAsi() {
                 <h3 className="font-display text-xl">{t.who}</h3>
                 <span className="font-mono text-sm text-ember">{t.year}</span>
               </div>
-              <p className="mt-4 text-xs text-foreground/80 italic leading-relaxed">“{t.quote}”</p>
+              <div className="mt-4 text-xs text-foreground/80 italic leading-relaxed">“{t.quote}”</div>
             </article>
           ))}
         </div>
@@ -97,7 +98,7 @@ function AgiAsi() {
           <div className="eyebrow">Existential Risk: Cyber-Physical Convergence</div>
           <h2 className="display text-4xl lg:text-5xl mt-4 max-w-3xl">Machine-velocity conflict.</h2>
           <p className="mt-6 text-sm text-foreground/80 leading-relaxed max-w-3xl">
-            In 2026, the convergence of IT and OT (Operational Technology) has created a <strong>strategic convergence of cyber-physical threats</strong>. Advanced Persistent Threat (APT) groups deploy AI-orchestrated attacks targeting critical national infrastructure: water treatment plants, regional power grids, and automated industrial control systems.
+            In 2026, the convergence of IT and OT (Operational Technology) has created a <strong>strategic convergence of cyber-physical threats</strong>. Advanced Persistent Threat (APT) groups deploy AI-orchestrated attacks targeting critical national infrastructure: water treatment plants, regional power grids, and automated industrial control systems<Citation id="cve-exploits-2026" />.
           </p>
           <p className="mt-4 text-sm text-foreground/80 leading-relaxed max-w-3xl">
             Because AI systems can compile, scan, and deploy zero-day exploits autonomously at scale, the window for human intervention has shrunk from hours to milliseconds. Safe AGI development demands hardening physical infrastructure against autonomous cyber-penetration vectors.
@@ -115,7 +116,7 @@ function AgiAsi() {
               <div className="eyebrow">{b.name}</div>
               <div className="mt-4">
                 <p className="text-[11px] text-foreground/60 line-through">{b.a}</p>
-                <p className="mt-1 font-display text-xl text-ember">{b.b}</p>
+                <div className="mt-1 font-display text-xl text-ember">{b.b}</div>
               </div>
             </div>
           ))}
