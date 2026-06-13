@@ -160,7 +160,7 @@ function Index() {
           </h1>
           <div className="mt-10 grid md:grid-cols-12 gap-8 items-end">
             <p className="md:col-span-7 text-xl leading-relaxed text-foreground/80">
-              We have entered the **Silicon Epoch**. In the next decade, artificial intelligence will rewrite science, medicine, work, geopolitics, and the texture of daily life. This is a living, deeply researched guide to *who* is building it, *how* it works, the *grid* that powers it, and *where* it is going.
+              We have entered the <strong className="font-semibold text-foreground">Silicon Epoch</strong>. In the next decade, artificial intelligence will rewrite science, medicine, work, geopolitics, and the texture of daily life. This is a living, deeply researched guide to <em className="italic">who</em> is building it, <em className="italic">how</em> it works, the <em className="italic">grid</em> that powers it, and <em className="italic">where</em> it is going.
             </p>
             <div className="md:col-span-5 md:justify-self-end flex flex-wrap gap-3">
               <Link to="/companies" className="rounded-full bg-ink text-paper px-6 py-3 text-sm hover:bg-ember transition-colors">Tour the frontier labs →</Link>
