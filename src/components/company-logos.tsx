@@ -108,8 +108,9 @@ export const BinaryLogo: React.FC<LogoProps> = ({ size = 24, className }) => (
   <ZeroOneComponent size={size} className={className} />
 );
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getLogoComponent = (name: string, size = 24, className = "") => {
-  const normalized = name.toLowerCase().replace(/[\s\.]+/g, "");
+  const normalized = name.toLowerCase().replace(/[\s.]+/g, "");
   switch (normalized) {
     case "openai":
       return <OpenAILogo size={size} className={className} />;

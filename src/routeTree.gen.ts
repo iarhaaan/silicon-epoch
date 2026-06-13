@@ -23,6 +23,7 @@ import { Route as GamesRouteImport } from './routes/games'
 import { Route as DataWallRouteImport } from './routes/data-wall'
 import { Route as ComputeRouteImport } from './routes/compute'
 import { Route as CompaniesRouteImport } from './routes/companies'
+import { Route as ChaptersRouteImport } from './routes/chapters'
 import { Route as AgiAsiRouteImport } from './routes/agi-asi'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -96,6 +97,11 @@ const CompaniesRoute = CompaniesRouteImport.update({
   path: '/companies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChaptersRoute = ChaptersRouteImport.update({
+  id: '/chapters',
+  path: '/chapters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgiAsiRoute = AgiAsiRouteImport.update({
   id: '/agi-asi',
   path: '/agi-asi',
@@ -110,6 +116,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agi-asi': typeof AgiAsiRoute
+  '/chapters': typeof ChaptersRoute
   '/companies': typeof CompaniesRoute
   '/compute': typeof ComputeRoute
   '/data-wall': typeof DataWallRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agi-asi': typeof AgiAsiRoute
+  '/chapters': typeof ChaptersRoute
   '/companies': typeof CompaniesRoute
   '/compute': typeof ComputeRoute
   '/data-wall': typeof DataWallRoute
@@ -147,6 +155,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agi-asi': typeof AgiAsiRoute
+  '/chapters': typeof ChaptersRoute
   '/companies': typeof CompaniesRoute
   '/compute': typeof ComputeRoute
   '/data-wall': typeof DataWallRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/agi-asi'
+    | '/chapters'
     | '/companies'
     | '/compute'
     | '/data-wall'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/agi-asi'
+    | '/chapters'
     | '/companies'
     | '/compute'
     | '/data-wall'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/agi-asi'
+    | '/chapters'
     | '/companies'
     | '/compute'
     | '/data-wall'
@@ -222,6 +234,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgiAsiRoute: typeof AgiAsiRoute
+  ChaptersRoute: typeof ChaptersRoute
   CompaniesRoute: typeof CompaniesRoute
   ComputeRoute: typeof ComputeRoute
   DataWallRoute: typeof DataWallRoute
@@ -338,6 +351,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompaniesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chapters': {
+      id: '/chapters'
+      path: '/chapters'
+      fullPath: '/chapters'
+      preLoaderRoute: typeof ChaptersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agi-asi': {
       id: '/agi-asi'
       path: '/agi-asi'
@@ -358,6 +378,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgiAsiRoute: AgiAsiRoute,
+  ChaptersRoute: ChaptersRoute,
   CompaniesRoute: CompaniesRoute,
   ComputeRoute: ComputeRoute,
   DataWallRoute: DataWallRoute,

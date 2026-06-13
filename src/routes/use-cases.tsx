@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
 import { Citation } from "@/components/citation";
+import { ChapterNavigation } from "@/components/chapter-navigation";
 
 export const Route = createFileRoute("/use-cases")({
   head: () => ({
@@ -9,12 +10,14 @@ export const Route = createFileRoute("/use-cases")({
       { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
       { property: "og:url", content: "https://siliconeposh.vercel.app/use-cases" },
       { title: "AI Use Cases — Silicon Epoch" },
-      { name: "description", content: "SWE-bench Pro scores, AlphaFold 3 biomolecular docking, GNoME materials discovery, and AlphaGeometry 2 IMO gold medal benchmarks." },
+      {
+        name: "description",
+        content:
+          "SWE-bench Pro scores, AlphaFold 3 biomolecular docking, GNoME materials discovery, and AlphaGeometry 2 IMO gold medal benchmarks.",
+      },
       { property: "og:title", content: "AI Use Cases — Silicon Epoch" },
     ],
-    links: [
-      { rel: "canonical", href: "https://siliconeposh.vercel.app/use-cases" },
-    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/use-cases" }],
   }),
   component: UseCases,
 });
@@ -23,22 +26,75 @@ const SECTORS = [
   {
     eyebrow: "Software Development",
     title: "AI is now driving production commits.",
-    body: <>84–91% of developers use AI coding tools. 51% of professional developers use AI tools daily, merging 60% more pull requests per week than non-users. The dominant pattern has shifted to 'frontier planner + cheap executor' networks (e.g. Fable 5/GPT-5.5 planning, while Gemini 3.5 Flash/DeepSeek executing).<Citation id="best-ai-coding-2026" /></>,
+    body: (
+      <>
+        84–91% of developers use AI coding tools. 51% of professional developers use AI tools daily,
+        merging 60% more pull requests per week than non-users. The dominant pattern has shifted to
+        'frontier planner + cheap executor' networks (e.g. Fable 5/GPT-5.5 planning, while Gemini
+        3.5 Flash/DeepSeek executing).
+        <Citation id="best-ai-coding-2026" />
+      </>
+    ),
     bullets: [
-      <>SWE-bench Pro Leaderboard: Claude Fable 5 (80.3%), Claude Opus 4.8 (69.2%), GPT-5.5 (58.6%), DeepSeek-V4-Pro (55.4%). Models drop 19-26 percentage points compared to Verified.<Citation id="swe-bench-pro-standard" /><Citation id="best-ai-coding-2026" /></>,
-      <>SWE-bench Verified Leaderboard: Claude Fable 5 (93.1%), Claude Opus 4.8 (88.6%), Gemini 3.5 Flash (85.4%), GPT-5.5 (~80%).<Citation id="best-ai-coding-2026" /></>,
-      <>Data Contamination: OpenAI has abandoned SWE-bench Verified reporting due to data contamination, finding 59.4% of hard tasks contained flawed tests.<Citation id="swe-bench-pro-standard" /></>,
-      <>Enterprise Adoption: Anthropic's Claude Code reached $2.5B annualized revenue by February 2026, just nine months post-release.<Citation id="claude-opus-4-8" /></>,
+      <>
+        SWE-bench Pro Leaderboard: Claude Fable 5 (80.3%), Claude Opus 4.8 (69.2%), GPT-5.5 (58.6%),
+        DeepSeek-V4-Pro (55.4%). Models drop 19-26 percentage points compared to Verified.
+        <Citation id="swe-bench-pro-standard" />
+        <Citation id="best-ai-coding-2026" />
+      </>,
+      <>
+        SWE-bench Verified Leaderboard: Claude Fable 5 (93.1%), Claude Opus 4.8 (88.6%), Gemini 3.5
+        Flash (85.4%), GPT-5.5 (~80%).
+        <Citation id="best-ai-coding-2026" />
+      </>,
+      <>
+        <strong>SWE-bench Pro vs. Verified:</strong> Verified uses a human-curated subset of 500
+        tasks with cleaned unit tests to prevent false negatives. Pro expands to 1,865 complex,
+        repository-level multi-file edit tasks with full sandbox execution, penalizing brute-force
+        guessing and forcing reasoning-heavy planning.
+        <Citation id="swe-bench-pro-standard" />
+      </>,
+      <>
+        Data Contamination: OpenAI has abandoned SWE-bench Verified reporting due to data
+        contamination, finding 59.4% of hard tasks contained flawed tests.
+        <Citation id="swe-bench-pro-standard" />
+      </>,
+      <>
+        Enterprise Adoption: Anthropic's Claude Code reached $2.5B annualized revenue by February
+        2026, just nine months post-release.
+        <Citation id="claude-opus-4-8" />
+      </>,
     ],
   },
   {
     eyebrow: "Mathematics & Logic",
     title: "Olympiad-level reasoning is unlocked.",
-    body: <>The paradigm has shifted from training-time scaling to test-time compute scaling, where reasoning models dedicate additional compute during inference. Systems like DeepSeek-R1, OpenAI o1/o3, and Qwen-QwQ spend 20,000–60,000 thinking tokens per query to self-correct and verify solutions.<Citation id="test-time-compute" /></>,
+    body: (
+      <>
+        The paradigm has shifted from training-time scaling to test-time compute scaling, where
+        reasoning models dedicate additional compute during inference. Systems like DeepSeek-R1,
+        OpenAI o1/o3, and Qwen-QwQ spend 20,000–60,000 thinking tokens per query to self-correct and
+        verify solutions.
+        <Citation id="test-time-compute" />
+      </>
+    ),
     bullets: [
-      <>AlphaGeometry 2 (DeepMind): Solved 84% of all IMO geometry problems from 2000–2024, reaching average gold-medalist performance. It combines a Gemini-based planner with a symbolic deduction engine.<Citation id="alphageometry-2" /></>,
-      <>Olympiad Math: The combined AlphaProof + AlphaGeometry 2 system solved 4 of 6 problems at the 2024 IMO, earning a silver-medal equivalent score of 28/42.<Citation id="deepmind-maths-olympiad" /></>,
-      <>Test-Time Math Gains: DeepSeek-R1 demonstrated that scaling test-time compute boosted AIME accuracy from 15.6% to 71%, reaching 86.7% with majority voting.<Citation id="test-time-compute" /></>,
+      <>
+        AlphaGeometry 2 (DeepMind): Solved 84% of all IMO geometry problems from 2000–2024, reaching
+        average gold-medalist performance. It combines a Gemini-based planner with a symbolic
+        deduction engine.
+        <Citation id="alphageometry-2" />
+      </>,
+      <>
+        Olympiad Math: The combined AlphaProof + AlphaGeometry 2 system solved 4 of 6 problems at
+        the 2024 IMO, earning a silver-medal equivalent score of 28/42.
+        <Citation id="deepmind-maths-olympiad" />
+      </>,
+      <>
+        Test-Time Math Gains: DeepSeek-R1 demonstrated that scaling test-time compute boosted AIME
+        accuracy from 15.6% to 71%, reaching 86.7% with majority voting.
+        <Citation id="test-time-compute" />
+      </>,
     ],
   },
   {
@@ -46,9 +102,23 @@ const SECTORS = [
     title: "Mapping biology and discovering materials.",
     body: "AI models have moved beyond language to act as co-investigators, navigating vast combinatorial chemistry and physical spaces to accelerate discoveries that previously took decades.",
     bullets: [
-      <>AlphaFold 3 (Google DeepMind): Predicts joint structures of protein-ligand, protein-nucleic acid, protein-protein complexes, DNA, and RNA. It uses a Pairformer module and a diffusion-based coordinate generator.<Citation id="alphafold-3-transformative" /></>,
-      <>AlphaFold 3 Performance: Achieves 76.4% accuracy in protein-ligand docking (1.8× improvement). Limitations: exhibits an 8.6% error in binding free energy changes and a 4.4% chirality violation rate.<Citation id="alphafold-3-transformative" /></>,
-      <>GNoME (DeepMind): Graph Networks for Materials Exploration identified 381,000 novel stable materials, expanded to over 520,000 stable crystals. Energy accuracy reaches ~21 meV/atom.<Citation id="materials-discovery-gnome" /></>,
+      <>
+        AlphaFold 3 (Google DeepMind): Predicts joint structures of protein-ligand, protein-nucleic
+        acid, protein-protein complexes, DNA, and RNA. It uses a Pairformer module and a
+        diffusion-based coordinate generator.
+        <Citation id="alphafold-3-transformative" />
+      </>,
+      <>
+        AlphaFold 3 Performance: Achieves 76.4% accuracy in protein-ligand docking (1.8×
+        improvement). Limitations: exhibits an 8.6% error in binding free energy changes and a 4.4%
+        chirality violation rate.
+        <Citation id="alphafold-3-transformative" />
+      </>,
+      <>
+        GNoME (DeepMind): Graph Networks for Materials Exploration identified 381,000 novel stable
+        materials, expanded to over 520,000 stable crystals. Energy accuracy reaches ~21 meV/atom.
+        <Citation id="materials-discovery-gnome" />
+      </>,
     ],
   },
   {
@@ -68,20 +138,32 @@ function UseCases() {
   return (
     <PageShell>
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-12">
-        <div className="eyebrow">Chapter 04 · In production today · June 2026</div>
+        <div className="eyebrow">
+          <Link to="/chapters" className="hover:text-ember transition-colors">
+            Chapter 04
+          </Link>{" "}
+          · In production today · June 2026
+        </div>
         <h1 className="display mt-6 text-[clamp(2.5rem,7vw,7rem)] max-w-5xl leading-[0.95]">
           AI is already <em className="italic text-ember">here</em>, doing the work.
         </h1>
         <p className="mt-8 max-w-3xl text-xl text-foreground/75 leading-relaxed">
-          Four primary domains where artificial intelligence has left the laboratory to automate development, solve complex mathematical proofs, discover new materials, and navigate physical environments.
+          Four primary domains where artificial intelligence has left the laboratory to automate
+          development, solve complex mathematical proofs, discover new materials, and navigate
+          physical environments.
         </p>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 space-y-px bg-border border border-border rounded-3xl overflow-hidden">
         {SECTORS.map((s, i) => (
-          <article key={s.eyebrow} className="bg-background p-10 lg:p-14 grid lg:grid-cols-12 gap-10">
+          <article
+            key={s.eyebrow}
+            className="bg-background p-10 lg:p-14 grid lg:grid-cols-12 gap-10"
+          >
             <div className="lg:col-span-4">
-              <div className="font-mono text-xs text-foreground/50">{String(i + 1).padStart(2, "0")}</div>
+              <div className="font-mono text-xs text-foreground/50">
+                {String(i + 1).padStart(2, "0")}
+              </div>
               <div className="eyebrow mt-2">{s.eyebrow}</div>
               <h2 className="display mt-4 text-4xl lg:text-5xl leading-tight">{s.title}</h2>
             </div>
@@ -100,17 +182,7 @@ function UseCases() {
         ))}
       </section>
 
-      {/* Navigation Footer */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-10 py-16 border-t border-border">
-        <div className="flex justify-between items-center">
-          <Link to="/companies" className="text-sm text-foreground/60 hover:text-foreground">
-            ← Chapter 03: Frontier Labs
-          </Link>
-          <Link to="/humanity" className="text-sm font-medium text-ember hover:underline">
-            Chapter 05: Humanity →
-          </Link>
-        </div>
-      </section>
+      <ChapterNavigation />
     </PageShell>
   );
 }

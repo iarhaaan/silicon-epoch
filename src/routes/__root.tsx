@@ -1,8 +1,7 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
-  createRootRouteWithContext,
+  createRootRoute,
   useRouter,
   HeadContent,
   Scripts,
@@ -52,12 +51,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-6 py-12">
       <div className="max-w-xl w-full border border-border bg-card rounded-3xl p-8 shadow-2xl text-center space-y-6">
-        <div className="eyebrow text-xs tracking-widest text-ember font-mono uppercase">System Diagnostic Exception</div>
+        <div className="eyebrow text-xs tracking-widest text-ember font-mono uppercase">
+          System Diagnostic Exception
+        </div>
         <h1 className="font-display text-4xl text-foreground font-bold tracking-tight">
           This chapter couldn't be loaded
         </h1>
         <p className="text-sm text-foreground/75 leading-relaxed max-w-md mx-auto">
-          Something went wrong rendering this route. This can happen due to a temporary network issue or stale static assets.
+          Something went wrong rendering this route. This can happen due to a temporary network
+          issue or stale static assets.
         </p>
 
         {/* Diagnostic display */}
@@ -93,16 +95,24 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Silicon Epoch — A Field Guide to the AI Frontier" },
-      { name: "description", content: "A comprehensive, current field guide to the AI revolution: every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
+      {
+        name: "description",
+        content:
+          "A comprehensive, current field guide to the AI revolution: every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
       { name: "author", content: "Silicon Epoch" },
       { property: "og:title", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
-      { property: "og:description", content: "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
+      {
+        property: "og:description",
+        content:
+          "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -110,7 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -148,13 +161,9 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <SmoothScroll>
-        <Outlet />
-      </SmoothScroll>
-    </QueryClientProvider>
+    <SmoothScroll>
+      <Outlet />
+    </SmoothScroll>
   );
 }

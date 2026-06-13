@@ -10,18 +10,22 @@ export const Route = createFileRoute("/sources")({
       { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
       { property: "og:url", content: "https://siliconeposh.vercel.app/sources" },
       { title: "Sources & Bibliography — Silicon Epoch" },
-      { name: "description", content: "Transparency bibliography of the primary source publications, research papers, interviews, and statistical reports used on Silicon Epoch." },
+      {
+        name: "description",
+        content:
+          "Transparency bibliography of the primary source publications, research papers, interviews, and statistical reports used on Silicon Epoch.",
+      },
       { property: "og:title", content: "Sources & Bibliography — Silicon Epoch" },
     ],
-    links: [
-      { rel: "canonical", href: "https://siliconeposh.vercel.app/sources" },
-    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/sources" }],
   }),
   component: Sources,
 });
 
 function Sources() {
-  const [filter, setFilter] = useState<"all" | "hardware" | "labs" | "reasoning" | "energy" | "geopolitics" | "data">("all");
+  const [filter, setFilter] = useState<
+    "all" | "hardware" | "labs" | "reasoning" | "energy" | "geopolitics" | "data"
+  >("all");
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -60,9 +64,8 @@ function Sources() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  const filteredSources = filter === "all" 
-    ? SOURCES_DATA 
-    : SOURCES_DATA.filter(s => s.category === filter);
+  const filteredSources =
+    filter === "all" ? SOURCES_DATA : SOURCES_DATA.filter((s) => s.category === filter);
 
   return (
     <PageShell>
@@ -72,21 +75,24 @@ function Sources() {
           Grounded in primary <em className="italic text-ember">research</em> and raw data.
         </h1>
         <p className="mt-8 max-w-3xl text-xl text-foreground/75 leading-relaxed">
-          Every statistic, timeline, quote, and technical detail on **Silicon Epoch** is pulled from real-world documents. Below is our transparency bibliography.
+          Every statistic, timeline, quote, and technical detail on <strong>Silicon Epoch</strong>{" "}
+          is pulled from real-world documents. Below is our transparency bibliography.
         </p>
       </section>
 
       {/* Filter Badges */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-8 flex flex-wrap gap-2">
-        {([
-          { id: "all", label: "All Sources" },
-          { id: "hardware", label: "Silicon & Compute" },
-          { id: "labs", label: "Frontier Labs" },
-          { id: "reasoning", label: "Logic & Science" },
-          { id: "energy", label: "Grid & Nuclear" },
-          { id: "geopolitics", label: "Geopolitics & Policy" },
-          { id: "data", label: "Data & Scaling" }
-        ] as const).map((cat) => (
+        {(
+          [
+            { id: "all", label: "All Sources" },
+            { id: "hardware", label: "Silicon & Compute" },
+            { id: "labs", label: "Frontier Labs" },
+            { id: "reasoning", label: "Logic & Science" },
+            { id: "energy", label: "Grid & Nuclear" },
+            { id: "geopolitics", label: "Geopolitics & Policy" },
+            { id: "data", label: "Data & Scaling" },
+          ] as const
+        ).map((cat) => (
           <button
             key={cat.id}
             onClick={() => {
@@ -127,26 +133,37 @@ function Sources() {
                   <div className="flex items-center justify-between gap-4 flex-wrap">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-[10px] tracking-widest uppercase text-ember border border-ember/20 rounded px-2 py-0.5">
-                        {source.category === "hardware" ? "Silicon & Compute" 
-                          : source.category === "labs" ? "Frontier Labs" 
-                          : source.category === "reasoning" ? "Logic & Science" 
-                          : source.category === "energy" ? "Grid & Nuclear" 
-                          : source.category === "geopolitics" ? "Geopolitics" 
-                          : "Data & Scaling"}
+                        {source.category === "hardware"
+                          ? "Silicon & Compute"
+                          : source.category === "labs"
+                            ? "Frontier Labs"
+                            : source.category === "reasoning"
+                              ? "Logic & Science"
+                              : source.category === "energy"
+                                ? "Grid & Nuclear"
+                                : source.category === "geopolitics"
+                                  ? "Geopolitics"
+                                  : "Data & Scaling"}
                       </span>
-                      <span className={`font-mono text-[9px] tracking-wider uppercase rounded px-2 py-0.5 ${
-                        source.type === "primary"
-                          ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20"
-                          : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20"
-                      }`}>
+                      <span
+                        className={`font-mono text-[9px] tracking-wider uppercase rounded px-2 py-0.5 ${
+                          source.type === "primary"
+                            ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20"
+                            : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20"
+                        }`}
+                      >
                         {source.type === "primary" ? "Verified Primary" : "Industry Analysis"}
                       </span>
                     </div>
                     <span className="font-mono text-xs text-foreground/50">{source.date}</span>
                   </div>
                   <h3 className="font-display text-2xl mt-4 leading-tight">{source.title}</h3>
-                  <p className="text-xs text-foreground/60 mt-1 font-medium">Author/Publisher: {source.author}</p>
-                  <p className="mt-4 text-xs text-foreground/75 leading-relaxed">{source.summary}</p>
+                  <p className="text-xs text-foreground/60 mt-1 font-medium">
+                    Author/Publisher: {source.author}
+                  </p>
+                  <p className="mt-4 text-xs text-foreground/75 leading-relaxed">
+                    {source.summary}
+                  </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/50">
                   <a

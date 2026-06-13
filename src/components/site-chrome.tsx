@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { Sun, Moon, ChevronDown } from "lucide-react";
+import { BackToTop } from "./back-to-top";
 
 const NAV = [
   { to: "/", label: "Overview" },
@@ -53,7 +54,6 @@ const CHAPTER_GROUPS = [
     ],
   },
 ];
-
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
@@ -127,7 +127,7 @@ export function SiteNav() {
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <span className="font-display text-lg lg:text-xl tracking-tight">Silicon&nbsp;Epoch</span>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 justify-center flex-1">
           <Link
@@ -139,11 +139,7 @@ export function SiteNav() {
           </Link>
 
           {/* Chapters Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <button
               id="chapters-menu-button"
               aria-haspopup="menu"
@@ -156,13 +152,17 @@ export function SiteNav() {
               className="text-[13px] font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors flex items-center gap-1 cursor-pointer"
             >
               Chapters
-              <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+              />
             </button>
 
             {dropdownOpen && (
-              <div 
+              <div
                 id="chapters-menu"
                 role="menu"
+                tabIndex={-1}
                 aria-labelledby="chapters-menu-button"
                 className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[580px] bg-background/95 backdrop-blur-lg border border-border rounded-xl shadow-2xl p-6 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-200 z-50"
                 onMouseEnter={handleMouseEnter}
@@ -188,6 +188,16 @@ export function SiteNav() {
                     </div>
                   </div>
                 ))}
+                <div className="col-span-3 border-t border-border/50 pt-4 mt-2 flex justify-center">
+                  <Link
+                    to="/chapters"
+                    role="menuitem"
+                    onClick={() => setDropdownOpen(false)}
+                    className="text-xs font-mono text-ember hover:underline flex items-center gap-1"
+                  >
+                    View All Chapters & Index →
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -213,12 +223,14 @@ export function SiteNav() {
             Sources
           </Link>
         </nav>
-        
+
         <div className="flex items-center gap-4 shrink-0">
           <ThemeToggle />
 
           <button
             onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation menu"
             className="lg:hidden text-sm border border-border rounded-full px-3.5 py-1.5 hover:bg-cream transition-colors cursor-pointer font-medium"
           >
             {menuOpen ? "Close" : "Menu"}
@@ -230,9 +242,16 @@ export function SiteNav() {
       {menuOpen && (
         <div className="border-t border-border bg-background max-h-[80vh] overflow-y-auto">
           <div className="px-6 py-6 flex flex-col gap-3">
-            <div className="eyebrow text-xs text-foreground/45 border-b border-border/50 pb-2 mb-1">Chapters of the Silicon Epoch</div>
+            <div className="eyebrow text-xs text-foreground/45 border-b border-border/50 pb-2 mb-1">
+              Chapters of the Silicon Epoch
+            </div>
             {NAV.map((n) => (
-              <Link key={n.to} to={n.to} className="text-base py-1.5 hover:text-ember transition-colors" onClick={() => setMenuOpen(false)}>
+              <Link
+                key={n.to}
+                to={n.to}
+                className="text-base py-1.5 hover:text-ember transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
                 {n.label}
               </Link>
             ))}
@@ -247,37 +266,99 @@ export function SiteFooter() {
   return (
     <footer className="mt-32 border-t border-border bg-cream/30">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid md:grid-cols-4 gap-10">
-        <div className="md:col-span-2">
+        <div className="md:col-span-1">
           <div className="flex items-center gap-2">
             <span className="font-display text-2xl tracking-tight">Silicon Epoch</span>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground max-w-md leading-relaxed">
-            A comprehensive, living field guide to the dawn of the silicon intelligence era. 
-            Tracking the physical nodes, the raw power grid, the sovereign chip pipelines, 
-            and the neural weights shaping the next decade.
+          <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
+            A comprehensive, living field guide to the dawn of the silicon intelligence era.
+            Tracking physical nodes, raw power grids, sovereign chip pipelines, and the neural
+            weights shaping the next decade.
+          </p>
+          <p className="mt-6 text-[11px] text-foreground/50 font-mono">
+            © 2026 Silicon Epoch. All rights reserved.
           </p>
         </div>
         <div>
-          <div className="eyebrow mb-3">Field Guide</div>
-          <ul className="space-y-2 text-sm grid grid-cols-2 md:grid-cols-1 gap-x-4">
-            {NAV.slice(1).map((n) => (
-              <li key={n.to}><Link to={n.to} className="hover:text-ember transition-colors">{n.label}</Link></li>
+          <div className="eyebrow mb-3">Field Guide Chapters</div>
+          <ul className="space-y-2 text-xs">
+            {NAV.slice(1, 13).map((n) => (
+              <li key={n.to}>
+                <Link to={n.to} className="hover:text-ember transition-colors">
+                  {n.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
         <div>
-          <div className="eyebrow mb-3">Frontier Chronicle</div>
-          <p className="text-sm text-foreground/85">June 2026 Edition</p>
-          <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-            All data represents primary-source lab releases, research papers, and calibrated indicators as of mid-2026. 
-            We distinguish between verified primary sources and secondary industry projections for transparency.
-            All trademark logos belong to their respective creators.
+          <div className="eyebrow mb-3">Overview & Indexes</div>
+          <ul className="space-y-2 text-xs">
+            <li>
+              <Link to="/" className="hover:text-ember transition-colors">
+                Overview
+              </Link>
+            </li>
+            <li>
+              <Link to="/chapters" className="hover:text-ember transition-colors">
+                Chapters Index
+              </Link>
+            </li>
+            <li>
+              <Link to="/timeline" className="hover:text-ember transition-colors">
+                History Timeline
+              </Link>
+            </li>
+            <li>
+              <Link to="/sources" className="hover:text-ember transition-colors">
+                Transparency Bibliography
+              </Link>
+            </li>
+            <li>
+              <Link to="/learn" className="hover:text-ember transition-colors">
+                Appendix · Learn AI
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div className="eyebrow mb-3">Frontier Connections</div>
+          <ul className="space-y-2 text-xs">
+            <li>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ember transition-colors"
+              >
+                GitHub Repository
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ember transition-colors"
+              >
+                Twitter / X
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://discord.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ember transition-colors"
+              >
+                Discord Community
+              </a>
+            </li>
+          </ul>
+          <p className="mt-6 text-xs text-muted-foreground leading-relaxed">
+            All data represents primary-source research and calibrated indicators as of June 2026.
+            We distinguish between verified primary sources and secondary projections.
           </p>
-          <div className="mt-6">
-            <Link to="/sources" className="text-xs text-ember hover:underline font-mono">
-              View Transparency Bibliography & Sources →
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
@@ -298,6 +379,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <SiteFooter />
+      <BackToTop />
     </div>
   );
 }

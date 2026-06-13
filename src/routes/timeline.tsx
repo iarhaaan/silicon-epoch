@@ -11,12 +11,14 @@ export const Route = createFileRoute("/timeline")({
       { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
       { property: "og:url", content: "https://siliconeposh.vercel.app/timeline" },
       { title: "Interactive AI History Timeline — Silicon Epoch" },
-      { name: "description", content: "Explore the evolution of artificial intelligence from its founding mathematical concepts in 1950 to the agentic reasoning models of 2026." },
+      {
+        name: "description",
+        content:
+          "Explore the evolution of artificial intelligence from its founding mathematical concepts in 1950 to the agentic reasoning models of 2026.",
+      },
       { property: "og:title", content: "Interactive AI History Timeline — Silicon Epoch" },
     ],
-    links: [
-      { rel: "canonical", href: "https://siliconeposh.vercel.app/timeline" },
-    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/timeline" }],
   }),
   component: TimelinePage,
 });
@@ -40,9 +42,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Alan Turing Proposes the Turing Test",
     era: "foundations",
     category: "breakthrough",
-    description: "Alan Turing publishes his seminal paper 'Computing Machinery and Intelligence', introducing the 'imitation game' (now known as the Turing Test) to evaluate machine intelligence.",
+    description:
+      "Alan Turing publishes his seminal paper 'Computing Machinery and Intelligence', introducing the 'imitation game' (now known as the Turing Test) to evaluate machine intelligence.",
     contributors: ["Alan Turing"],
-    impact: "Established the foundational question 'Can machines think?' and defined intelligence operationally for the computing age.",
+    impact:
+      "Established the foundational question 'Can machines think?' and defined intelligence operationally for the computing age.",
     citationId: "turing-test-1950",
   },
   {
@@ -51,9 +55,11 @@ const EVENTS: TimelineEvent[] = [
     title: "The Dartmouth Workshop",
     era: "foundations",
     category: "policy",
-    description: "A summer research project organized by John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon at Dartmouth College, widely credited with coining the term 'Artificial Intelligence'.",
+    description:
+      "A summer research project organized by John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon at Dartmouth College, widely credited with coining the term 'Artificial Intelligence'.",
     contributors: ["John McCarthy", "Marvin Minsky", "Claude Shannon", "Nathaniel Rochester"],
-    impact: "Officially launched artificial intelligence as an academic research field, outlining core vectors like neural networks and language processing.",
+    impact:
+      "Officially launched artificial intelligence as an academic research field, outlining core vectors like neural networks and language processing.",
     citationId: "dartmouth-proposal-1955",
   },
   {
@@ -62,9 +68,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Frank Rosenblatt Invents the Perceptron",
     era: "foundations",
     category: "breakthrough",
-    description: "Rosenblatt introduces the Perceptron, the earliest artificial neural network architecture designed for pattern recognition and binary classification.",
+    description:
+      "Rosenblatt introduces the Perceptron, the earliest artificial neural network architecture designed for pattern recognition and binary classification.",
     contributors: ["Frank Rosenblatt"],
-    impact: "Laid the mathematical foundations for supervised learning and artificial neural connections, igniting early optimism in neural nets.",
+    impact:
+      "Laid the mathematical foundations for supervised learning and artificial neural connections, igniting early optimism in neural nets.",
     citationId: "perceptron-1958",
   },
   {
@@ -73,9 +81,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Popularization of Backpropagation",
     era: "expansion",
     category: "breakthrough",
-    description: "Rumelhart, Hinton, and Williams publish in Nature, demonstrating how the backpropagation algorithm can train multi-layer neural networks to learn internal hidden representations.",
+    description:
+      "Rumelhart, Hinton, and Williams publish in Nature, demonstrating how the backpropagation algorithm can train multi-layer neural networks to learn internal hidden representations.",
     contributors: ["David E. Rumelhart", "Geoffrey E. Hinton", "Ronald J. Williams"],
-    impact: "Resurrected connectionist and neural network research from the first AI winter by providing a practical training method for deep architectures.",
+    impact:
+      "Resurrected connectionist and neural network research from the first AI winter by providing a practical training method for deep architectures.",
     citationId: "backpropagation-1986",
   },
   {
@@ -84,9 +94,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Deep Blue Defeats Garry Kasparov",
     era: "expansion",
     category: "games",
-    description: "IBM's chess-playing computer Deep Blue defeats reigning world champion Garry Kasparov in a historic six-game match under tournament conditions.",
+    description:
+      "IBM's chess-playing computer Deep Blue defeats reigning world champion Garry Kasparov in a historic six-game match under tournament conditions.",
     contributors: ["Feng-hsiung Hsu", "Murray Campbell", "IBM Research Team"],
-    impact: "A landmark public demonstration showing that heuristic search systems could outperform the finest human minds in complex strategy games.",
+    impact:
+      "A landmark public demonstration showing that heuristic search systems could outperform the finest human minds in complex strategy games.",
     citationId: "deepblue-1997",
   },
   {
@@ -95,9 +107,11 @@ const EVENTS: TimelineEvent[] = [
     title: "AlexNet Wins the ImageNet Challenge",
     era: "deep-learning",
     category: "breakthrough",
-    description: "Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton train a deep convolutional neural network (AlexNet) using GPU acceleration, achieving a massive win on ImageNet.",
+    description:
+      "Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton train a deep convolutional neural network (AlexNet) using GPU acceleration, achieving a massive win on ImageNet.",
     contributors: ["Alex Krizhevsky", "Ilya Sutskever", "Geoffrey E. Hinton"],
-    impact: "Triggered the modern deep learning revolution by proving that deep neural networks combined with large datasets and GPUs are highly effective.",
+    impact:
+      "Triggered the modern deep learning revolution by proving that deep neural networks combined with large datasets and GPUs are highly effective.",
     citationId: "alexnet-2012",
   },
   {
@@ -106,9 +120,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Ian Goodfellow Invents GANs",
     era: "deep-learning",
     category: "breakthrough",
-    description: "Goodfellow et al. introduce Generative Adversarial Networks (GANs), setting up a competitive game between a generator and a discriminator model.",
+    description:
+      "Goodfellow et al. introduce Generative Adversarial Networks (GANs), setting up a competitive game between a generator and a discriminator model.",
     contributors: ["Ian Goodfellow", "Yoshua Bengio", "Jean Pouget-Abadie"],
-    impact: "Pioneered high-fidelity synthetic data generation and launched the field of deep generative AI.",
+    impact:
+      "Pioneered high-fidelity synthetic data generation and launched the field of deep generative AI.",
     citationId: "gans-paper-2014",
   },
   {
@@ -117,9 +133,11 @@ const EVENTS: TimelineEvent[] = [
     title: "ResNet: Deep Residual Learning introduced",
     era: "deep-learning",
     category: "hardware",
-    description: "Kaiming He and colleagues introduce Deep Residual Learning, using skip connections to train neural networks containing over 150 layers.",
+    description:
+      "Kaiming He and colleagues introduce Deep Residual Learning, using skip connections to train neural networks containing over 150 layers.",
     contributors: ["Kaiming He", "Xiangyu Zhang", "Shaoqing Ren", "Jian Sun"],
-    impact: "Overcame the vanishing gradient problem, allowing architectures to scale deeper and power modern computer vision models.",
+    impact:
+      "Overcame the vanishing gradient problem, allowing architectures to scale deeper and power modern computer vision models.",
     citationId: "resnet-paper-2015",
   },
   {
@@ -128,9 +146,11 @@ const EVENTS: TimelineEvent[] = [
     title: "AlphaGo Defeats Grandmaster Lee Sedol",
     era: "deep-learning",
     category: "games",
-    description: "Google DeepMind's AlphaGo defeats 18-time world Go champion Lee Sedol 4-1 in a televised match in Seoul.",
+    description:
+      "Google DeepMind's AlphaGo defeats 18-time world Go champion Lee Sedol 4-1 in a televised match in Seoul.",
     contributors: ["David Silver", "Demis Hassabis", "DeepMind Team"],
-    impact: "Showed that deep reinforcement learning and tree search could conquer Go, a game with a state space larger than the atoms in the universe.",
+    impact:
+      "Showed that deep reinforcement learning and tree search could conquer Go, a game with a state space larger than the atoms in the universe.",
     citationId: "alphago-paper",
   },
   {
@@ -139,9 +159,17 @@ const EVENTS: TimelineEvent[] = [
     title: "The Transformer Architecture Introduced",
     era: "deep-learning",
     category: "breakthrough",
-    description: "Google researchers publish 'Attention Is All You Need', introducing the Transformer architecture built entirely on self-attention mechanisms.",
-    contributors: ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "Aidan N. Gomez", "Illia Polosukhin"],
-    impact: "The architectural backbone for all modern LLMs, enabling massive parallelization and scaling of natural language processing.",
+    description:
+      "Google researchers publish 'Attention Is All You Need', introducing the Transformer architecture built entirely on self-attention mechanisms.",
+    contributors: [
+      "Ashish Vaswani",
+      "Noam Shazeer",
+      "Niki Parmar",
+      "Aidan N. Gomez",
+      "Illia Polosukhin",
+    ],
+    impact:
+      "The architectural backbone for all modern LLMs, enabling massive parallelization and scaling of natural language processing.",
     citationId: "transformer-paper-2017",
   },
   {
@@ -150,9 +178,11 @@ const EVENTS: TimelineEvent[] = [
     title: "AlphaStar Reaches Grandmaster in StarCraft II",
     era: "deep-learning",
     category: "games",
-    description: "DeepMind's AlphaStar agent achieves grandmaster ranking in StarCraft II, mastering imperfect information and real-time strategy.",
+    description:
+      "DeepMind's AlphaStar agent achieves grandmaster ranking in StarCraft II, mastering imperfect information and real-time strategy.",
     contributors: ["Oriol Vinyals", "David Silver", "DeepMind Team"],
-    impact: "Proved reinforcement learning's capabilities in real-time environments with massive action spaces and long time horizons.",
+    impact:
+      "Proved reinforcement learning's capabilities in real-time environments with massive action spaces and long time horizons.",
     citationId: "alphastar-paper",
   },
   {
@@ -161,9 +191,11 @@ const EVENTS: TimelineEvent[] = [
     title: "OpenAI Releases GPT-3",
     era: "deep-learning",
     category: "labs",
-    description: "OpenAI publishes 'Language Models are Few-Shot Learners', introducing the 175-billion parameter GPT-3 model.",
+    description:
+      "OpenAI publishes 'Language Models are Few-Shot Learners', introducing the 175-billion parameter GPT-3 model.",
     contributors: ["OpenAI Research Team", "Alec Radford", "Ilya Sutskever"],
-    impact: "Established that scaling parameter sizes allows models to perform diverse downstream tasks without explicit fine-tuning.",
+    impact:
+      "Established that scaling parameter sizes allows models to perform diverse downstream tasks without explicit fine-tuning.",
     citationId: "gpt3-paper-2020",
   },
   {
@@ -172,9 +204,11 @@ const EVENTS: TimelineEvent[] = [
     title: "OpenAI Launches ChatGPT",
     era: "modern",
     category: "labs",
-    description: "OpenAI introduces ChatGPT, a conversational chatbot aligned via Reinforcement Learning from Human Feedback (RLHF).",
+    description:
+      "OpenAI introduces ChatGPT, a conversational chatbot aligned via Reinforcement Learning from Human Feedback (RLHF).",
     contributors: ["OpenAI Alignment Team", "Sam Altman"],
-    impact: "Brought generative AI into the global mainstream, reaching 100 million active users in just two months and initiating the GenAI race.",
+    impact:
+      "Brought generative AI into the global mainstream, reaching 100 million active users in just two months and initiating the GenAI race.",
     citationId: "chatgpt-launch-2022",
   },
   {
@@ -183,9 +217,11 @@ const EVENTS: TimelineEvent[] = [
     title: "GPT-4 and economic impact reviews",
     era: "modern",
     category: "policy",
-    description: "OpenAI releases GPT-4, demonstrating human-level performance on legal/medical exams. Goldman Sachs projects AI will raise global GDP by 7%.",
+    description:
+      "OpenAI releases GPT-4, demonstrating human-level performance on legal/medical exams. Goldman Sachs projects AI will raise global GDP by 7%.",
     contributors: ["OpenAI Systems Team", "Goldman Sachs Research"],
-    impact: "Accelerated enterprise adoption and triggered intense global debates about productivity gains, job displacement, and regulation.",
+    impact:
+      "Accelerated enterprise adoption and triggered intense global debates about productivity gains, job displacement, and regulation.",
     citationId: "goldman-sachs-gdp",
   },
   {
@@ -194,9 +230,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Google Genie & Willow quantum chip",
     era: "modern",
     category: "hardware",
-    description: "Google DeepMind introduces Genie (playable world models), and Quantum AI announces the Willow chip achieving quantum error correction below threshold.",
+    description:
+      "Google DeepMind introduces Genie (playable world models), and Quantum AI announces the Willow chip achieving quantum error correction below threshold.",
     contributors: ["Google Quantum AI Team", "Google DeepMind Team"],
-    impact: "Pushed boundaries in physical error correction and generated simulated 3D environments, laying groundwork for future robotics world models.",
+    impact:
+      "Pushed boundaries in physical error correction and generated simulated 3D environments, laying groundwork for future robotics world models.",
     citationId: "google-willow-quantum",
   },
   {
@@ -205,9 +243,11 @@ const EVENTS: TimelineEvent[] = [
     title: "Project Sid: 1,000 Autonomous Agents in Minecraft",
     era: "modern",
     category: "games",
-    description: "Altera AI runs a simulation of 1,000 cooperative language model agents in Minecraft, showing trade networks and social structures.",
+    description:
+      "Altera AI runs a simulation of 1,000 cooperative language model agents in Minecraft, showing trade networks and social structures.",
     contributors: ["Altera AI Research Team"],
-    impact: "Represented a major step toward long-horizon, collaborative multi-agent societies operating inside dynamic virtual sandboxes.",
+    impact:
+      "Represented a major step toward long-horizon, collaborative multi-agent societies operating inside dynamic virtual sandboxes.",
     citationId: "project-sid-minecraft",
   },
   {
@@ -216,9 +256,11 @@ const EVENTS: TimelineEvent[] = [
     title: "The Rise of RL & Reasoning Models",
     era: "modern",
     category: "breakthrough",
-    description: "The release of reasoning models (like DeepSeek-R1 and OpenAI's o-series) shifts the paradigm from pre-training compute to inference-time scaling.",
+    description:
+      "The release of reasoning models (like DeepSeek-R1 and OpenAI's o-series) shifts the paradigm from pre-training compute to inference-time scaling.",
     contributors: ["DeepSeek Team", "OpenAI o1 Team"],
-    impact: "Bypassed traditional pre-training bottlenecks, establishing reinforcement learning and test-time compute as the new frontier of AI scaling.",
+    impact:
+      "Bypassed traditional pre-training bottlenecks, establishing reinforcement learning and test-time compute as the new frontier of AI scaling.",
     citationId: "reasoning-models-explained",
   },
   {
@@ -227,10 +269,12 @@ const EVENTS: TimelineEvent[] = [
     title: "State of AI: Enterprise adoption reaches 88%",
     era: "modern",
     category: "policy",
-    description: "McKinsey's annual survey confirms that generative AI adoption has surged to 88% of organizations using it in at least one business function.",
+    description:
+      "McKinsey's annual survey confirms that generative AI adoption has surged to 88% of organizations using it in at least one business function.",
     contributors: ["McKinsey & Company / QuantumBlack"],
-    impact: "Proved that generative AI is no longer a pilot concept but an integrated, boardroom-level production reality across global enterprises.",
-    citationId: "mckinsey-genai-2025",
+    impact:
+      "Proved that generative AI is no longer a pilot concept but an integrated, boardroom-level production reality across global enterprises.",
+    citationId: "mckinsey-genai-2026",
   },
   {
     id: "gpt-5-5-launch-2026",
@@ -238,9 +282,11 @@ const EVENTS: TimelineEvent[] = [
     title: "OpenAI Launches Flagship GPT-5.5",
     era: "modern",
     category: "labs",
-    description: "OpenAI releases GPT-5.5, a highly optimized agentic model family designed for multi-step task execution, tool use, and self-correction.",
+    description:
+      "OpenAI releases GPT-5.5, a highly optimized agentic model family designed for multi-step task execution, tool use, and self-correction.",
     contributors: ["OpenAI Developer Relations"],
-    impact: "Provided commercial developers with highly efficient System 2 reasoning agents capable of operating cross-tool workflows.",
+    impact:
+      "Provided commercial developers with highly efficient System 2 reasoning agents capable of operating cross-tool workflows.",
     citationId: "gpt-5-5-announcement",
   },
   {
@@ -249,17 +295,23 @@ const EVENTS: TimelineEvent[] = [
     title: "Claude Fable 5 & coding benchmark breakthroughs",
     era: "modern",
     category: "labs",
-    description: "Anthropic launches Claude Fable 5, achieving an 80.3% solve rate on the SWE-bench Pro coding benchmark, and Claude Code reaches $2.5B ARR.",
+    description:
+      "Anthropic launches Claude Fable 5, achieving an 80.3% solve rate on the SWE-bench Pro coding benchmark, and Claude Code reaches $2.5B ARR.",
     contributors: ["Anthropic Press", "Simon Willison"],
-    impact: "Demonstrated that autonomous software engineering agents could operate at a high-performing human level, reshaping the developer landscape.",
+    impact:
+      "Demonstrated that autonomous software engineering agents could operate at a high-performing human level, reshaping the developer landscape.",
     citationId: "best-ai-coding-2026",
   },
 ];
 
 function TimelinePage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedEra, setSelectedEra] = useState<"all" | "foundations" | "expansion" | "deep-learning" | "modern">("all");
-  const [selectedCategory, setSelectedCategory] = useState<"all" | "breakthrough" | "hardware" | "games" | "policy">("all");
+  const [selectedEra, setSelectedEra] = useState<
+    "all" | "foundations" | "expansion" | "deep-learning" | "modern"
+  >("all");
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "breakthrough" | "hardware" | "games" | "policy"
+  >("all");
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 
   const eras = [
@@ -305,7 +357,9 @@ function TimelinePage() {
           The Road to <em className="italic text-ember">Artificial Superintelligence</em>.
         </h1>
         <p className="mt-8 max-w-3xl text-xl text-foreground/75 leading-relaxed mx-auto lg:mx-0">
-          Trace the historical progression of AI from Turing's early mathematical foundations to the 2026 frontier of agentic reasoning models. Every milestone is linked directly to primary source papers and official documents.
+          Trace the historical progression of AI from Turing's early mathematical foundations to the
+          2026 frontier of agentic reasoning models. Every milestone is linked directly to primary
+          source papers and official documents.
         </p>
       </section>
 
@@ -319,6 +373,7 @@ function TimelinePage() {
             </span>
             <input
               type="text"
+              aria-label="Search timeline events"
               placeholder="Search breakthroughs, people, or milestones..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -370,7 +425,9 @@ function TimelinePage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 relative">
         {filteredEvents.length === 0 ? (
           <div className="py-24 text-center">
-            <p className="text-lg text-foreground/60">No milestones matched your search or filters.</p>
+            <p className="text-lg text-foreground/60">
+              No milestones matched your search or filters.
+            </p>
             <button
               onClick={() => {
                 setSearchQuery("");
@@ -385,7 +442,7 @@ function TimelinePage() {
         ) : (
           <div className="relative">
             {/* Central Vertical Connector Line */}
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-[2px] bg-dashed border-l-2 border-dashed border-border lg:-translate-x-1/2" />
+            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-[1px] border-l border-dashed border-border/70 lg:-translate-x-1/2" />
 
             <div className="space-y-12">
               {filteredEvents.map((event, index) => {
@@ -399,22 +456,32 @@ function TimelinePage() {
                     }`}
                   >
                     {/* Node Dot Indicator */}
-                    <div className="absolute left-4 lg:left-1/2 top-8 lg:-translate-x-1/2 z-10 flex items-center justify-center">
+                    <div className="absolute left-[10px] lg:left-1/2 top-8 lg:-translate-x-1/2 z-10 flex items-center justify-center">
                       <button
                         onClick={() => setSelectedEventId(event.id)}
-                        className={`w-4 h-4 rounded-full border-2 transition-all duration-300 cursor-pointer ${
+                        aria-label={`Select milestone: ${event.title}`}
+                        className={`w-3 h-3 rounded-full border transition-all duration-300 cursor-pointer ${
                           selectedEventId === event.id
-                            ? "border-ember bg-ember scale-110 shadow-[0_0_8px_rgba(226,92,44,0.5)]"
+                            ? "border-ember bg-ember scale-110 shadow-[0_0_6px_rgba(226,92,44,0.5)]"
                             : "border-ember bg-background hover:scale-110 hover:bg-ember/15"
                         }`}
                       />
                     </div>
 
                     {/* Timeline Event Card (Left or Right side depending on index) */}
-                    <div className="w-full lg:w-[46%] pl-10 lg:pl-0">
-                      <article
+                    <div className="w-full lg:w-[47%] pl-10 lg:pl-0">
+                      <div
                         onClick={() => setSelectedEventId(event.id)}
-                        className="group relative rounded-2xl border border-border p-6 lg:p-8 bg-card transition-all duration-300 hover:border-ember hover:shadow-xl hover:-translate-y-0.5 cursor-pointer flex flex-col justify-between h-full"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setSelectedEventId(event.id);
+                          }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`View details for ${event.title}`}
+                        className="group relative rounded-2xl border border-border p-6 lg:p-8 bg-card transition-all duration-300 hover:border-ember hover:shadow-xl hover:-translate-y-0.5 cursor-pointer flex flex-col justify-between h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
                       >
                         <div>
                           {/* Year Badge */}
@@ -423,10 +490,13 @@ function TimelinePage() {
                               {event.year}
                             </span>
                             <span className="font-mono text-[10px] tracking-wider uppercase text-foreground/50 border border-border/80 rounded px-2.5 py-0.5">
-                              {event.category === "breakthrough" ? "Breakthrough"
-                                : event.category === "hardware" ? "Compute & HW"
-                                : event.category === "games" ? "Game AI"
-                                : "Social & Policy"}
+                              {event.category === "breakthrough"
+                                ? "Breakthrough"
+                                : event.category === "hardware"
+                                  ? "Compute & HW"
+                                  : event.category === "games"
+                                    ? "Game AI"
+                                    : "Social & Policy"}
                             </span>
                           </div>
 
@@ -443,15 +513,19 @@ function TimelinePage() {
                           <span className="text-[11px] font-mono text-foreground/50 truncate max-w-[70%]">
                             Key: {event.contributors.join(", ")}
                           </span>
-                          <span className="text-xs font-mono text-ember flex items-center gap-1.5 select-none" onClick={(e) => e.stopPropagation()}>
+                          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+                          <span
+                            className="text-xs font-mono text-ember flex items-center gap-1.5 select-none"
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             Source: <Citation id={event.citationId} />
                           </span>
                         </div>
-                      </article>
+                      </div>
                     </div>
 
                     {/* Empty spacer for alignment */}
-                    <div className="hidden lg:block lg:w-[46%]" />
+                    <div className="hidden lg:block lg:w-[47%]" />
                   </div>
                 );
               })}
@@ -471,10 +545,13 @@ function TimelinePage() {
                   {activeEvent.year}
                 </span>
                 <span className="font-mono text-xs tracking-wider uppercase text-foreground/50 ml-4 border border-border/80 rounded px-2.5 py-0.5">
-                  {activeEvent.category === "breakthrough" ? "Breakthrough"
-                    : activeEvent.category === "hardware" ? "Compute & HW"
-                    : activeEvent.category === "games" ? "Game AI"
-                    : "Social & Policy"}
+                  {activeEvent.category === "breakthrough"
+                    ? "Breakthrough"
+                    : activeEvent.category === "hardware"
+                      ? "Compute & HW"
+                      : activeEvent.category === "games"
+                        ? "Game AI"
+                        : "Social & Policy"}
                 </span>
               </div>
               <button
@@ -522,9 +599,7 @@ function TimelinePage() {
                 <h4 className="text-[10px] font-mono font-semibold uppercase tracking-wider text-foreground/50">
                   Immediate Impact & Legacy
                 </h4>
-                <p className="text-base text-foreground/85 leading-relaxed">
-                  {activeEvent.impact}
-                </p>
+                <p className="text-base text-foreground/85 leading-relaxed">{activeEvent.impact}</p>
               </div>
             </div>
 
@@ -533,7 +608,11 @@ function TimelinePage() {
               <span className="text-xs text-foreground/50">
                 Backed by active bibliography records
               </span>
-              <span className="font-mono text-sm text-ember inline-flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+              <span
+                className="font-mono text-sm text-ember inline-flex items-center gap-2"
+                onClick={(e) => e.stopPropagation()}
+              >
                 Citation Code: <Citation id={activeEvent.citationId} />
               </span>
             </div>

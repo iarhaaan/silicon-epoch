@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
 import { Citation } from "@/components/citation";
@@ -25,22 +26,60 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
       { property: "og:url", content: "https://siliconeposh.vercel.app/" },
       { title: "Silicon Epoch — How AI Will Reshape Humanity" },
-      { name: "description", content: "A comprehensive, current field guide to the AI revolution: every frontier lab, every model, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
+      {
+        name: "description",
+        content:
+          "A comprehensive, current field guide to the AI revolution: every frontier lab, every model, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
       { property: "og:title", content: "Silicon Epoch — How AI Will Reshape Humanity" },
-      { property: "og:description", content: "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
+      {
+        property: "og:description",
+        content:
+          "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
     ],
-    links: [
-      { rel: "canonical", href: "https://siliconeposh.vercel.app/" },
-    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/" }],
   }),
   component: Index,
 });
 
 const STATS = [
-  { k: "78%", v: <>Of organisations regularly use generative AI, up from 55% in 2023 (McKinsey 2025)<Citation id="mckinsey-genai-2025" /></> },
-  { k: "140T", v: <>Daily token volume call rate in China as of Q1 2026 — a 1,400× jump in two years<Citation id="reasoning-token-stack" /></> },
-  { k: "80.3%", v: <>Top score on SWE-bench Pro (Claude Fable 5, June 2026) — up from ~10% two years ago<Citation id="best-ai-coding-2026" /></> },
-  { k: "$2.5B", v: <>Claude Code's annualized revenue in February 2026 — just 9 months post-release<Citation id="claude-opus-4-8" /></> },
+  {
+    k: "78%",
+    v: (
+      <>
+        Of organisations regularly use generative AI, up from 55% in 2023 (McKinsey 2025)
+        <Citation id="mckinsey-genai-2025" />
+      </>
+    ),
+  },
+  {
+    k: "140T",
+    v: (
+      <>
+        Daily token volume call rate in China as of Q1 2026 — a 1,400× jump in two years
+        <Citation id="reasoning-token-stack" />
+      </>
+    ),
+  },
+  {
+    k: "80.3%",
+    v: (
+      <>
+        Top score on SWE-bench Pro (Claude Fable 5, June 2026) — up from ~10% two years ago
+        <Citation id="best-ai-coding-2026" />
+      </>
+    ),
+  },
+  {
+    k: "$2.5B",
+    v: (
+      <>
+        Claude Code's annualized revenue in February 2026 — just 9 months post-release
+        <Citation id="claude-opus-4-8" />
+      </>
+    ),
+  },
 ];
 
 const PILLARS = [
@@ -152,10 +191,57 @@ const TICKER = [
   "DeepSeek-R1 Test-Time Scaling Shift · ",
   "SWE-bench Pro Fable 5 80.3% · ",
   "Claude Code $2.5B ARR · ",
-  "Factorio baseline 29.1 (Claude 3.7 Sonnet) · ",
+];
+
+const INDICATORS = [
+  { label: "Colossus 2 Cluster", value: "100,000 H100 Online", status: "Nominal Draw · 150MW" },
+  {
+    label: "Llama 4 Training Run",
+    value: "Maverick 400B in progress",
+    status: "1.2 GW Grid Capacity",
+  },
+  {
+    label: "TMI Nuclear Restart",
+    value: "835MW Reactor Grid PPA",
+    status: "Target Online H1 2027",
+  },
+  {
+    label: "ARC-AGI-2 Leaderboard",
+    value: "Claude Fable 5: 85.2%",
+    status: "Exceeds Human Expert",
+  },
 ];
 
 function Index() {
+  const [activeIndicator, setActiveIndicator] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isOffScreen, setIsOffScreen] = useState(false);
+  const tickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndicator((prev) => (prev + 1) % INDICATORS.length);
+    }, 4500);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsOffScreen(!entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+
+    if (tickerRef.current) {
+      observer.observe(tickerRef.current);
+    }
+
+    return () => {
+      clearInterval(timer);
+      observer.disconnect();
+    };
+  }, []);
+
+  const shouldAnimate = !isPaused && !isOffScreen;
+
   return (
     <PageShell>
       {/* HERO */}
@@ -163,26 +249,104 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-28">
           <div className="eyebrow">A field guide · Updated June 2026</div>
           <h1 className="display mt-6 text-[clamp(3rem,9vw,9rem)] max-w-6xl">
-            The most consequential <em className="italic text-ember">technology</em> in human history is being built right now.
+            The most consequential <em className="italic text-ember">technology</em> in human
+            history is being built right now.
           </h1>
-          <div className="mt-10 grid md:grid-cols-12 gap-8 items-end">
-            <p className="md:col-span-7 text-xl leading-relaxed text-foreground/80">
-              We have entered the <strong className="font-semibold text-foreground">Silicon Epoch</strong>. In the next decade, artificial intelligence will rewrite science, medicine, work, geopolitics, and the texture of daily life. This is a living, deeply researched guide to <em className="italic">who</em> is building it, <em className="italic">how</em> it works, the <em className="italic">grid</em> that powers it, and <em className="italic">where</em> it is going.
-            </p>
-            <div className="md:col-span-5 md:justify-self-end flex flex-wrap gap-3">
-              <Link to="/companies" className="rounded-full bg-ink text-paper px-6 py-3 text-sm hover:bg-ember transition-colors">Tour the frontier labs →</Link>
-              <Link to="/timeline" className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors">History Timeline</Link>
-              <Link to="/infrastructure" className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors">Hardware & Grid</Link>
+          <div className="mt-10 grid md:grid-cols-12 gap-8 items-stretch">
+            <div className="md:col-span-7 flex flex-col justify-between">
+              <p className="text-xl leading-relaxed text-foreground/80">
+                We have entered the{" "}
+                <strong className="font-semibold text-foreground">Silicon Epoch</strong>. In the
+                next decade, artificial intelligence will rewrite science, medicine, work,
+                geopolitics, and the texture of daily life. This is a living, deeply researched
+                guide to <em className="italic">who</em> is building it,{" "}
+                <em className="italic">how</em> it works, the <em className="italic">grid</em> that
+                powers it, and <em className="italic">where</em> it is going.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/companies"
+                  className="rounded-full bg-ink text-paper px-6 py-3 text-sm hover:bg-ember transition-colors"
+                >
+                  Tour the labs →
+                </Link>
+                <Link
+                  to="/timeline"
+                  className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors"
+                >
+                  History Timeline
+                </Link>
+                <Link
+                  to="/infrastructure"
+                  className="rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-ink hover:text-paper transition-colors"
+                >
+                  Hardware & Grid
+                </Link>
+              </div>
+            </div>
+            <div className="md:col-span-5 border border-border/80 rounded-3xl bg-card/60 backdrop-blur-md p-6 flex flex-col justify-between min-h-[180px] relative shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono tracking-widest uppercase text-foreground/45 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-ember animate-pulse" />
+                  Frontier Live Telemetry
+                </span>
+                <span className="text-[10px] font-mono text-foreground/40">
+                  {activeIndicator + 1} / {INDICATORS.length}
+                </span>
+              </div>
+              <div className="mt-4 animate-in fade-in duration-300">
+                <div className="text-xs font-mono text-foreground/50">
+                  {INDICATORS[activeIndicator].label}
+                </div>
+                <div className="font-display text-xl font-bold text-foreground mt-1">
+                  {INDICATORS[activeIndicator].value}
+                </div>
+                <div className="text-[11px] font-mono text-ember mt-1">
+                  {INDICATORS[activeIndicator].status}
+                </div>
+              </div>
+              <button
+                onClick={() => setActiveIndicator((prev) => (prev + 1) % INDICATORS.length)}
+                className="absolute right-6 bottom-6 text-[10px] font-mono text-foreground/50 hover:text-ember cursor-pointer"
+              >
+                Next Telemetry →
+              </button>
             </div>
           </div>
         </div>
 
         {/* Ticker */}
-        <div className="rule border-y border-border bg-cream overflow-hidden">
-          <div className="flex ticker whitespace-nowrap py-3 text-sm font-mono text-foreground/60">
-            <div className="flex shrink-0">{TICKER.concat(TICKER).map((t,i) => <span key={i} className="px-2">{t}</span>)}</div>
-            <div className="flex shrink-0">{TICKER.concat(TICKER).map((t,i) => <span key={"b"+i} className="px-2">{t}</span>)}</div>
+        <div
+          ref={tickerRef}
+          className="rule border-y border-border bg-cream overflow-hidden relative group"
+        >
+          <div
+            className="flex ticker whitespace-nowrap py-3 text-sm font-mono text-foreground/60"
+            style={{ animationPlayState: shouldAnimate ? "running" : "paused" }}
+          >
+            <div className="flex shrink-0">
+              {TICKER.concat(TICKER).map((t, i) => (
+                <span key={i} className="px-2">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div className="flex shrink-0">
+              {TICKER.concat(TICKER).map((t, i) => (
+                <span key={"b" + i} className="px-2">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
+          {/* Play/Pause control */}
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            aria-label={isPaused ? "Play ticker animation" : "Pause ticker animation"}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background border border-border/80 rounded-md px-2.5 py-1 text-[10px] font-mono tracking-wider uppercase shadow-sm opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity z-10 cursor-pointer"
+          >
+            {isPaused ? "Play" : "Pause"}
+          </button>
         </div>
       </section>
 
@@ -200,7 +364,9 @@ function Index() {
 
       {/* LOGO CLOUD (Frontier Partners) */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-12 border-t border-border">
-        <div className="eyebrow text-center mb-10 text-foreground/50">Frontier AI Labs & Ecosystem covered in this guide</div>
+        <div className="eyebrow text-center mb-10 text-foreground/50">
+          Frontier AI Labs & Ecosystem covered in this guide
+        </div>
         <div className="grid grid-cols-3 md:grid-cols-7 gap-y-12 gap-x-8 justify-items-center items-center opacity-65 hover:opacity-100 transition-opacity duration-300">
           <div className="flex flex-col items-center gap-2" title="OpenAI">
             <OpenAILogo size={32} />
@@ -264,10 +430,16 @@ function Index() {
       {/* PILLARS */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 border-t border-border">
         <div className="eyebrow mb-6">Field Guide Chapters</div>
-        <h2 className="display text-5xl lg:text-6xl mb-12">Thirteen vectors of the intelligence explosion.</h2>
+        <h2 className="display text-5xl lg:text-6xl mb-12">
+          Thirteen vectors of the intelligence explosion.
+        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-3xl overflow-hidden border border-border">
           {PILLARS.map((p) => (
-            <Link key={p.to} to={p.to} className="group bg-background p-10 hover:bg-cream transition-colors flex flex-col justify-between">
+            <Link
+              key={p.to}
+              to={p.to}
+              className="group bg-background p-10 hover:bg-cream transition-colors flex flex-col justify-between"
+            >
               <div>
                 <div className="eyebrow">{p.eyebrow}</div>
                 <h2 className="display mt-4 text-3xl">{p.title}</h2>
@@ -286,16 +458,66 @@ function Index() {
         <div className="eyebrow">What the builders are saying</div>
         <div className="mt-8 grid md:grid-cols-3 gap-10">
           {[
-            { q: "We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.", who: <>Sam Altman · OpenAI · May 2026<Citation id="gpt-5-5-announcement" /></> },
-            { q: "We are near the end of the exponential — a few years away from a country of geniuses in a data center.", who: <>Dario Amodei · Anthropic · Feb 2026<Citation id="fable-5-impressions" /></> },
-            { q: "We are standing in the foothills of the singularity. Society has only a few years left to prepare.", who: <>Demis Hassabis · Google DeepMind · May 2026<Citation id="gemini-3-5-flash-guide" /></> },
-            { q: "Digital superintelligence is coming. xAI is positioning Colossus 2 and Grok 5 to achieve true AGI.", who: <>Elon Musk · xAI · 2026<Citation id="grok-4-3-announcement" /></> },
-            { q: "LLMs will not lead to AGI. Objective-driven world models are the true path forward.", who: <>Yann LeCun · AMI Labs · Feb 2026<Citation id="best-open-source-2026" /></> },
-            { q: "We are not here to win a price war. We are here to push the boundary of intelligence, raising $7B to build open weights.", who: <>Liang Wenfeng · DeepSeek · June 2026<Citation id="deepseek-v4-r2" /></> },
+            {
+              q: "We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.",
+              who: (
+                <>
+                  Sam Altman · OpenAI · June 2025
+                  <Citation id="altman-intelligence-age" />
+                </>
+              ),
+            },
+            {
+              q: "We are near the end of the exponential — a few years away from a country of geniuses in a data center.",
+              who: (
+                <>
+                  Dario Amodei · Anthropic · Feb 2026
+                  <Citation id="fable-5-impressions" />
+                </>
+              ),
+            },
+            {
+              q: "We are standing in the foothills of the singularity. Society has only a few years left to prepare.",
+              who: (
+                <>
+                  Demis Hassabis · Google DeepMind · May 2026
+                  <Citation id="gemini-3-5-flash-guide" />
+                </>
+              ),
+            },
+            {
+              q: "Digital superintelligence is coming. xAI is positioning Colossus 2 and Grok 5 to achieve true AGI.",
+              who: (
+                <>
+                  Elon Musk · xAI · 2026
+                  <Citation id="grok-4-3-announcement" />
+                </>
+              ),
+            },
+            {
+              q: "LLMs will not lead to AGI. Objective-driven world models are the true path forward.",
+              who: (
+                <>
+                  Yann LeCun · AMI Labs · Feb 2026
+                  <Citation id="best-open-source-2026" />
+                </>
+              ),
+            },
+            {
+              q: "We are not here to win a price war. We are here to push the boundary of intelligence, raising $7B to build open weights.",
+              who: (
+                <>
+                  Liang Wenfeng · DeepSeek · June 2026
+                  <Citation id="deepseek-v4-r2" />
+                </>
+              ),
+            },
           ].map((c) => (
             <figure key={c.q} className="border-t border-border pt-6">
               <blockquote className="font-display text-2xl leading-snug">“{c.q}”</blockquote>
-              <figcaption className="mt-4 eyebrow text-foreground/60 flex items-center gap-1">{c.who}</figcaption>
+              <figcaption className="mt-4 eyebrow text-foreground/60 flex items-center gap-1">
+                {c.who}
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -307,13 +529,37 @@ function Index() {
           <div className="grain-overlay" />
           <div className="eyebrow text-paper/60">Where to start</div>
           <h2 className="display mt-4 text-5xl lg:text-7xl max-w-4xl">
-            If you read one thing today, read <Link to="/agi-asi" className="ember-underline">the timeline to AGI</Link>.
+            If you read one thing today, read{" "}
+            <Link to="/agi-asi" className="ember-underline">
+              the timeline to AGI
+            </Link>
+            .
           </h2>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/agi-asi" className="rounded-full bg-ember text-white px-6 py-3 text-sm hover:opacity-90">The road to AGI →</Link>
-            <Link to="/timeline" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Interactive Timeline</Link>
-            <Link to="/infrastructure" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Nuclear Datacenters & Grid</Link>
-            <Link to="/open-vs-closed" className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink">Open vs Closed weights</Link>
+            <Link
+              to="/agi-asi"
+              className="rounded-full bg-ember text-white px-6 py-3 text-sm hover:opacity-90"
+            >
+              The road to AGI →
+            </Link>
+            <Link
+              to="/timeline"
+              className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink"
+            >
+              Interactive Timeline
+            </Link>
+            <Link
+              to="/infrastructure"
+              className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink"
+            >
+              Nuclear Datacenters & Grid
+            </Link>
+            <Link
+              to="/open-vs-closed"
+              className="rounded-full border border-paper/30 px-6 py-3 text-sm hover:bg-paper hover:text-ink"
+            >
+              Open vs Closed weights
+            </Link>
           </div>
         </div>
       </section>
