@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 const STATS = [
   { k: "78%", v: "Of organisations regularly use generative AI, up from 55% in 2023 (McKinsey 2025)" },
   { k: "140T", v: "Daily token volume call rate in China as of Q1 2026 — a 1,400× jump in two years" },
-  { k: "69.2%", v: "Top score on SWE-bench Pro (Claude Opus 4.8, June 2026) — up from ~10% two years ago" },
+  { k: "80.3%", v: "Top score on SWE-bench Pro (Claude Fable 5, June 2026) — up from ~10% two years ago" },
   { k: "$2.5B", v: "Claude Code's annualized revenue in February 2026 — just 9 months post-release" },
 ];
 
@@ -54,7 +54,7 @@ const PILLARS = [
   {
     eyebrow: "03 · Frontier Labs",
     title: "Every major lab & flagship model",
-    body: "From OpenAI's GPT-5.4 family and Google's Gemini 3.1 to Anthropic's Claude Fable 5, Meta's Maverick, DeepSeek V4, Qwen 3.7-Max, and Zhipu GLM-5.",
+    body: "From OpenAI's GPT-5.5 family and Google's Gemini 3.5 to Anthropic's Claude Fable 5, Meta's Maverick, DeepSeek V4-Pro, Qwen 3.7-Max, and Zhipu GLM-5.",
     to: "/companies" as const,
     cta: "Browse the labs",
   },
@@ -131,11 +131,11 @@ const PILLARS = [
 ];
 
 const TICKER = [
-  "GPT-5.4 (June 2026) · ",
+  "GPT-5.5 (April 2026) · ",
   "Claude Fable 5 (June 9, 2026) · ",
   "Claude Mythos 5 (June 2026) · ",
-  "Gemini 3.1 Pro (June 2026) · ",
-  "DeepSeek V4 MoE ~1T params · ",
+  "Gemini 3.5 Flash (May 2026) · ",
+  "DeepSeek V4-Pro MoE ~1.6T params · ",
   "Meta Muse Spark Pivot · ",
   "Qwen 3.7-Max (May 2026) · ",
   "Kimi K2.5 Open Weights · ",
@@ -143,7 +143,7 @@ const TICKER = [
   "Microsoft Crane Clean Energy Center 835 MW (2027) · ",
   "Google Kairos Power SMR Deal (500 MW) · ",
   "DeepSeek-R1 Test-Time Scaling Shift · ",
-  "SWE-bench Pro Opus 4.8 69.2% · ",
+  "SWE-bench Pro Fable 5 80.3% · ",
   "Claude Code $2.5B ARR · ",
   "Factorio baseline 29.1 (Claude 3.7 Sonnet) · ",
 ];

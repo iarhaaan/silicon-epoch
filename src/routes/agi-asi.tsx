@@ -28,11 +28,11 @@ const TIMELINE = [
 
 const BENCHMARKS = [
   { name: "ARC-AGI-1 (abstraction)", a: "GPT-4o (2024): 5.0%", b: "o3 (2025): 87.5%" },
-  { name: "ARC-AGI-2 (human baseline)", a: "Human Expert: ~72.0%", b: "Gemini 3.1 Pro: 77.1%" },
-  { name: "SWE-bench Pro (hard code)", a: "Gemini 3.1 Pro: 54.2%", b: "Claude Opus 4.8: 69.2%" },
-  { name: "SWE-bench Verified (curated code)", a: "Sonnet 4.6: 79.6%", b: "Claude Opus 4.8: 88.6%" },
-  { name: "GPQA Diamond (doctoral science)", a: "Human PhD baseline: ~65.0%", b: "Frontier 2026: 85.0 - 94.0%" },
-  { name: "AIME (test-time math)", a: "DeepSeek-R1 (base): 15.6%", b: "DeepSeek-R1 (scaled): 86.7%" },
+  { name: "ARC-AGI-2 (human baseline)", a: "Human Expert: ~72.0%", b: "Claude Fable 5: 85.2%" },
+  { name: "SWE-bench Pro (hard code)", a: "GPT-5.5: 58.6%", b: "Claude Fable 5: 80.3%" },
+  { name: "SWE-bench Verified (curated code)", a: "Gemini 3.5 Flash: 85.4%", b: "Claude Fable 5: 93.1%" },
+  { name: "GPQA Diamond (doctoral science)", a: "Human PhD baseline: ~65.0%", b: "Claude Fable 5: 94.5%" },
+  { name: "AIME (test-time math)", a: "DeepSeek-R1 (base): 15.6%", b: "GPT-5.5: 99.3%" },
 ];
 
 function AgiAsi() {

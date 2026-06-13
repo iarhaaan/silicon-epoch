@@ -6,7 +6,7 @@ export const Route = createFileRoute("/companies")({
   head: () => ({
     meta: [
       { title: "Frontier AI Labs — Ecosystem Leaderboard · June 2026" },
-      { name: "description", content: "OpenAI GPT-5.4, Anthropic Claude Fable 5, Google Gemini 3.1, xAI Grok 4, Meta Muse Spark, DeepSeek V4, Qwen 3.7-Max, GLM-5 - flagship models, CEO quotes, and pricing." },
+      { name: "description", content: "OpenAI GPT-5.5, Anthropic Claude Fable 5, Google Gemini 3.5, xAI Grok 4.3, Meta Muse Spark, DeepSeek V4-Pro, Qwen 3.7-Max, GLM-5 - flagship models, CEO quotes, and pricing." },
       { property: "og:title", content: "Frontier AI Labs — Ecosystem Leaderboard" },
     ],
   }),
@@ -37,10 +37,10 @@ const LABS: Lab[] = [
     funding: "$6.6B Oct 2024 round at $157B valuation; Microsoft >$13B total backing.",
     accent: "ember",
     models: [
-      { name: "GPT-5.4 (June 2026)", note: "Unified flagship router, 1.05M-token context window. Priced at $2.50 / $15.00 per 1M tokens." },
-      { name: "GPT-5 mini", note: "Cost-sensitive developer workhorse. 270K context. Priced at $0.25 / $2.00 per 1M." },
+      { name: "GPT-5.5 (April 2026)", note: "Unified flagship router, 1.05M-token context window. Priced at $5.00 / $30.00 per 1M tokens." },
+      { name: "GPT-5.5 Instant", note: "Cost-sensitive high-speed workhorse, 1M context. Priced at $0.50 / $2.00 per 1M." },
       { name: "gpt-oss-120b", note: "Open-access 117B parameters model (MoE activating only 5.1B active parameters per token)." },
-      { name: "Sora 2 & Voice API", note: "Sub-second multimodal speech-to-speech engine and generative world simulators." },
+      { name: "o3 Reasoning Series", note: "Reasoning models (o3-mini / o3-pro) optimizing test-time compute for STEM & coding." },
     ],
     vision: "Altman's May 2026 essay 'The Gentle Singularity': 'We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence.' Abundance in compute and fusion energy.",
     quote: "“AGI will arrive in 2025... and it is pretty close.” — Sam Altman",
@@ -56,7 +56,7 @@ const LABS: Lab[] = [
     accent: "cobalt",
     models: [
       { name: "Claude Fable 5 & Mythos 5 (June 2026)", note: "Frontier reasoning engines, 1M context. Unsafeguarded Mythos 5 restricted to US government. Priced at $10.00 / $50.00." },
-      { name: "Claude Opus 4.6", note: "Safety-first flagship model. 1M context, state-of-the-art SWE-bench Pro planning. Priced at $5.00 / $25.00." },
+      { name: "Claude Opus 4.8 (May 2026)", note: "Safety-first flagship model. 1M context, state-of-the-art SWE-bench Pro planning. Priced at $5.00 / $25.00." },
       { name: "Claude Sonnet 4.6", note: "Balanced speed/cost workhorse. 1M context. Priced at $3.00 / $15.00." },
       { name: "Claude Code", note: "Agentic terminal CLI tool. Generated $2.5B annualized revenue by February 2026." },
     ],
@@ -73,10 +73,10 @@ const LABS: Lab[] = [
     funding: "Alphabet internal subsidiary; backed by Google's $65B infrastructure CapEx program in 2025.",
     accent: "moss",
     models: [
-      { name: "Gemini 2.5 Pro", note: "Reasoning flagship with a 2-million token context window and native Deep Think mode." },
-      { name: "Gemini 3.1 Pro (June 2026)", note: "Next-gen reasoning preview, 200K context. Priced at $2.00 / $12.00 per 1M tokens." },
+      { name: "Gemini 3.5 Flash (May 2026)", note: "Flagship workhorse model with near-Pro intelligence and low-latency agentic capabilities." },
+      { name: "Gemini 3.1 Pro Preview", note: "Premium reasoning flagship, 2M context window with native Deep Think mode. Priced at $2.00 / $12.00 per 1M." },
+      { name: "Gemini 3.1 Flash-Lite", note: "Low-latency, cost-effective automation specialist for high-volume workflows." },
       { name: "AlphaFold 3 / GNoME", note: "Predicts protein-ligand, DNA/RNA structures and over 520,000 stable crystalline materials." },
-      { name: "Genie 3 (July 2025)", note: "720p 24fps interactive generative physics world simulator with 60-second temporal memory." },
     ],
     vision: "Hassabis claims we are standing in the 'foothills of the singularity' and that AGI will serve as the ultimate multiplier for physics, chemistry, biology, and math proofs.",
     quote: "“AGI is within reach. Five to ten years out. The next decade will be the most exciting in the history of science.” — Demis Hassabis",
@@ -91,7 +91,8 @@ const LABS: Lab[] = [
     funding: "$6B May 2024 round at $24B; $6B Dec 2024 at $50B; $5B Jul 2025 with SpaceX $2B → $113B combined valuation.",
     accent: "ink",
     models: [
-      { name: "Grok 4 (June 2026)", note: "Flagship model with native computer-use API and direct X real-time lookup. Priced at $5.00 / $25.00." },
+      { name: "Grok 4.3 (early 2026)", note: "Flagship model with native computer-use API, 2M context window, and direct X real-time lookup. Priced at $5.00 / $25.00." },
+      { name: "Grok Build (0.1)", note: "Agentic terminal CLI coding tool, supporting parallel sub-agents and tool execution." },
       { name: "Grok 5 (In Training)", note: "Estimated 6T parameter MoE training on Colossus 2 (targeting true AGI)." },
     ],
     vision: "A maximally truth-seeking AI designed to understand the universe. Musk positions xAI as the compute-heavy sovereign alternative, tightly integrated with Tesla robotics and SpaceX launch systems.",
@@ -124,7 +125,8 @@ const LABS: Lab[] = [
     funding: "Self-funded. Raised a historic $7B at a $45B valuation in June 2026 from national and private entities.",
     accent: "ember",
     models: [
-      { name: "DeepSeek V4 (April 2026)", note: "1.6T total / 50-60B active MoE. Permissive MIT license. Near-zero Flash API pricing." },
+      { name: "DeepSeek-V4-Pro (April 2026)", note: "1.6T total / 49B active MoE, 1M context. Permissive MIT license. Near-zero Flash API pricing." },
+      { name: "DeepSeek-V4-Flash (April 2026)", note: "284B total / 13B active MoE, 1M context window for high-efficiency reasoning." },
       { name: "DeepSeek V3.2", note: "671B total / 37B active MoE. Priced at $0.28 input / $0.42 output per 1M tokens." },
       { name: "DeepSeek-R1", note: "Reasoning model trained with pure RL, scaling test-time compute. AIME math score: 86.7%." },
     ],
@@ -142,8 +144,8 @@ const LABS: Lab[] = [
     accent: "ember",
     models: [
       { name: "Qwen3.7-Max (May 2026)", note: "Reasoning flagship, 256K context, optimized for 35-hour agent loops. Priced at $2.50 / $7.50." },
-      { name: "Qwen3.6 Plus", note: "Long-context agent workhorse, 1M context. Shipped under preview APIs." },
-      { name: "Qwen3-Coder / Wan Video", note: "State-of-the-art coding and open generative video specialists (Apache 2.0)." },
+      { name: "Qwen3.7-Plus", note: "Multimodal agent foundation model unifying vision, language, and action planning." },
+      { name: "Qwen3-Coder-Next", note: "State-of-the-art coding specialist with advanced tool use and repository-level comprehension." },
     ],
     vision: "Eddie Wu's vision is to make Alibaba Cloud the primary runtime for global AI agents. Open weights for smaller models, closed weights for the absolute frontier.",
     quote: "“Open weights set the baseline, but agent swarms in the cloud represent the monetization.” — Qwen Team",
@@ -152,15 +154,16 @@ const LABS: Lab[] = [
 ];
 
 const LEADERBOARD = [
-  { lab: "OpenAI", model: "GPT-5.4 (June 2026)", params: "Undisclosed MoE", context: "1,050,000", price: "$2.50 / $15.00", license: "Proprietary API" },
+  { lab: "OpenAI", model: "GPT-5.5 (April 2026)", params: "Undisclosed MoE", context: "1,050,000", price: "$5.00 / $30.00", license: "Proprietary API" },
   { lab: "OpenAI", model: "gpt-oss-120b", params: "117B total / 5.1B active", context: "128,000", price: "Free (limited)", license: "Community Open-Access" },
   { lab: "Anthropic", model: "Claude Fable 5", params: "Undisclosed", context: "1,000,000", price: "$10.00 / $50.00", license: "Proprietary API" },
-  { lab: "Anthropic", model: "Claude Opus 4.6", params: "Undisclosed", context: "1,000,000", price: "$5.00 / $25.00", license: "Proprietary API" },
-  { lab: "Google DeepMind", model: "Gemini 2.5 Pro", params: "Undisclosed", context: "2,000,000", price: "Free tier / Pay-per-use", license: "Proprietary API" },
-  { lab: "Google DeepMind", model: "Gemini 3.1 Pro", params: "Undisclosed", context: "200,000", price: "$2.00 / $12.00", license: "Proprietary Preview" },
+  { lab: "Anthropic", model: "Claude Opus 4.8", params: "Undisclosed", context: "1,000,000", price: "$5.00 / $25.00", license: "Proprietary API" },
+  { lab: "Google DeepMind", model: "Gemini 3.5 Flash", params: "Undisclosed", context: "1,000,000", price: "$0.075 / $0.30", license: "Proprietary API" },
+  { lab: "Google DeepMind", model: "Gemini 3.1 Pro", params: "Undisclosed", context: "2,000,000", price: "$2.00 / $12.00", license: "Proprietary Preview" },
+  { lab: "xAI", model: "Grok 4.3", params: "Undisclosed", context: "2,000,000", price: "$5.00 / $25.00", license: "Proprietary API" },
   { lab: "Meta AI", model: "Llama 4 Maverick", params: "400B total / 17B active", context: "1,000,000", price: "Free (inference cost only)", license: "Llama Community License" },
   { lab: "Meta AI", model: "Llama 4 Scout", params: "109B total / 17B active", context: "10,000,000", price: "Free (inference cost only)", license: "Llama Community License" },
-  { lab: "DeepSeek", model: "DeepSeek V4", params: "~1T total / 50-60B active", context: "1,000,000", price: "Near-Zero (Flash API)", license: "Permissive MIT License" },
+  { lab: "DeepSeek", model: "DeepSeek-V4-Pro", params: "1.6T total / 49B active", context: "1,000,000", price: "Near-Zero (Flash API)", license: "Permissive MIT License" },
   { lab: "DeepSeek", model: "DeepSeek V3.2", params: "671B total / 37B active", context: "128,000+", price: "$0.28 / $0.42", license: "Permissive MIT License" },
   { lab: "Alibaba Qwen", model: "Qwen3.7-Max", params: "Undisclosed", context: "256,000+", price: "$2.50 / $7.50", license: "Proprietary API" },
   { lab: "Moonshot AI", model: "Kimi K2.5", params: "Undisclosed MoE", context: "262,000", price: "$0.38 / $1.72", license: "Open Weights" },

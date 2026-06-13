@@ -145,7 +145,7 @@ const SOURCES_DATA: SourceItem[] = [
     author: "Morph LLM Blog",
     date: "May 2026",
     category: "reasoning",
-    summary: "Evaluates Claude Opus 4.8, Sonnet 4.6, GPT-5.4, Gemini 3.1, and MiniMax M2.5 on code planning and execution.",
+    summary: "Evaluates Claude Fable 5, Claude Opus 4.8, GPT-5.5, Gemini 3.5 Flash, and MiniMax M2.5 on code planning and execution.",
     url: "https://www.morphllm.com/best-ai-model-for-coding"
   },
   {

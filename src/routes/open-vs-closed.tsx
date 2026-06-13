@@ -5,7 +5,7 @@ export const Route = createFileRoute("/open-vs-closed")({
   head: () => ({
     meta: [
       { title: "Open Weights vs Closed APIs — Silicon Epoch" },
-      { name: "description", content: "Comparing closed models (GPT-5.4, Claude Fable) with open weights (Llama 4, DeepSeek V4). Licensing, biosecurity safeguards, and EU/CA regulation." },
+      { name: "description", content: "Comparing closed models (GPT-5.5, Claude Fable) with open weights (Llama 4, DeepSeek-V4-Pro). Licensing, biosecurity safeguards, and EU/CA regulation." },
       { property: "og:title", content: "Open Weights vs Closed APIs — Silicon Epoch" },
     ],
   }),
@@ -27,7 +27,7 @@ const COMPARISON = [
   },
   {
     feature: "Inference Economics",
-    closed: "Premium token-based pricing margins. GPT-5.4 priced at $2.50 / $15.00 per 1M. Subject to hyperscaler price floors.",
+    closed: "Premium token-based pricing margins. GPT-5.5 priced at $5.00 / $30.00 per 1M. Subject to hyperscaler price floors.",
     open: "Highly economical. DeepSeek V3.2 priced at $0.28 / $0.42 per 1M, while Flash APIs operate near-zero. 10-100× cheaper inference.",
     winner: "Open (for high-volume agent swarms)"
   },
@@ -42,9 +42,9 @@ const COMPARISON = [
 const MODELS_SIDE = [
   {
     category: "Reasoning & Coding Flagships",
-    closedModel: "Claude Fable 5 / GPT-5.4",
-    closedStats: "SWE-bench Pro: 69.2% (Opus 4.8) / 57.7% (GPT-5.4) · GPQA: 85-94%",
-    openModel: "DeepSeek V4 Pro / Qwen3.7-Max",
+    closedModel: "Claude Fable 5 / GPT-5.5",
+    closedStats: "SWE-bench Pro: 80.3% (Fable 5) / 58.6% (GPT-5.5) · GPQA: 94.5% (Fable 5)",
+    openModel: "DeepSeek-V4-Pro / Qwen3.7-Max",
     openStats: "SWE-bench Pro: 55.4% (V4 Pro) / ~54% (Qwen3.7-Max) · GPQA: 92.4%"
   },
   {
@@ -56,7 +56,7 @@ const MODELS_SIDE = [
   },
   {
     category: "Maximum Context Windows",
-    closedModel: "Gemini 2.5 Pro",
+    closedModel: "Gemini 3.1 Pro",
     closedStats: "2,000,000 tokens (lossless needle-in-a-haystack)",
     openModel: "Llama 4 Scout",
     openStats: "10,000,000 tokens (Sparse Attention / open weights)"

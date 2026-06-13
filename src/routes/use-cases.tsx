@@ -16,10 +16,10 @@ const SECTORS = [
   {
     eyebrow: "Software Development",
     title: "AI is now driving production commits.",
-    body: "84–91% of developers use AI coding tools. 51% of professional developers use AI tools daily, merging 60% more pull requests per week than non-users. The dominant pattern has shifted to 'frontier planner + cheap executor' networks (e.g. Opus/GPT-5.5 planning, while Sonnet/DeepSeek executing).",
+    body: "84–91% of developers use AI coding tools. 51% of professional developers use AI tools daily, merging 60% more pull requests per week than non-users. The dominant pattern has shifted to 'frontier planner + cheap executor' networks (e.g. Fable 5/GPT-5.5 planning, while Gemini 3.5 Flash/DeepSeek executing).",
     bullets: [
-      "SWE-bench Pro Leaderboard: Claude Opus 4.8 (69.2%), GPT-5.4 (57.7%), DeepSeek V4 Pro (55.4%), Gemini 3.1 Pro (54.2%). Models drop 19-26 percentage points compared to Verified.",
-      "SWE-bench Verified Leaderboard: Claude Opus 4.8 (88.6%), Claude Opus 4.6 (80.8%), Gemini 3.1 Pro (80.6%), MiniMax M2.5 (80.2%), GPT-5.4 (~80%).",
+      "SWE-bench Pro Leaderboard: Claude Fable 5 (80.3%), Claude Opus 4.8 (69.2%), GPT-5.5 (58.6%), DeepSeek-V4-Pro (55.4%). Models drop 19-26 percentage points compared to Verified.",
+      "SWE-bench Verified Leaderboard: Claude Fable 5 (93.1%), Claude Opus 4.8 (88.6%), Gemini 3.5 Flash (85.4%), GPT-5.5 (~80%).",
       "Data Contamination: OpenAI has abandoned SWE-bench Verified reporting due to data contamination, finding 59.4% of hard tasks contained flawed tests.",
       "Enterprise Adoption: Anthropic's Claude Code reached $2.5B annualized revenue by February 2026, just nine months post-release.",
     ],
