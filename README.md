@@ -17,21 +17,15 @@ All stats, analyses, and citations are calibrated and updated to represent prima
 
 ---
 
-## 🔮 100% Vibecoded
-
-This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). From rebranding the copy and styling, compiling direct subpath SVG components for a 96% module size optimization, configuring the Nitro server runner for Vercel deployment, to building out new deep-dive chapters and custom interactive features—the entire development workflow was driven through conversational vibes and agentic code execution.
-
----
-
 ## 🗺️ Table of Contents
 
 - **Chapter 01** · The Compute Core (Overview & Silicon Fundamentals)
 - **Chapter 02** · How AI Works (Transformers, Architectures & Diffusion)
-- **Chapter 03** · Frontier Labs (OpenAI, Anthropic, DeepMind, Meta, DeepSeek, xAI, etc.)
+- **Chapter 03** · Frontier Labs (OpenAI, Anthropic, DeepMind, Meta, DeepSeek, Mistral, xAI, etc.)
 - **Chapter 04** · AI Use Cases (Coding, Creative, Medicine, Math & Reasoning)
 - **Chapter 05** · Humanity (Safety, Alignments, Alignment Failure & Labor Transitions)
 - **Chapter 06** · AGI & ASI (Superalignment, Decisional Safety, Cyberdefense & Scaling Laws)
-- **Chapter 07** · Games (StarCraft II, Chess, Diplomacy, Go, GTA V, etc.)
+- **Chapter 07** · Games (AlphaGo, AlphaStar, Deep Blue, Genie 3, Factorio Agents, etc.)
 - **Chapter 08** · The Next Decade (Quantum Computing, Bio-AI, Autonomous Agents)
 - **Chapter 09** · Infrastructure & Energy (Blackwell/Rubin chips, Gigawatt DCs, Nuclear PPAs)
 - **Chapter 10** · Geopolitics & The Chip Wars (TSMC, ASML lithography, exports, Huawei Ascend)
@@ -51,10 +45,11 @@ This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). Fr
   * Immersive details drawer showing immediate legacy, key contributors, and active bibliographical references.
   * Custom styled, sleek node dots utilising the brand's warm `ember` orange with glowing active shadow indicators.
 * **Silicon Epoch Aesthetics**: A premium, immersive interface built with curated dark/light themes, sleek glassmorphism, responsive masonry layouts, and smooth micro-animations.
+* **O(1) Map-Based Citation System**: High-efficiency bibliographic lookups powered by a strict key-value mapping (`SOURCES_MAP`), providing instant highlight triggers and tooltip diagnostics for missing/fallback citations.
 * **Frontier Lab Integrations**: Official brand logo rendering using optimized SVG paths directly from `@lobehub/icons` subpaths to keep the bundle size minimal.
 * **Side-by-Side Comparison**: Interactive, tabular analysis of frontier closed weights (GPT-5.5, Claude Fable 5) vs. open weights (DeepSeek V4-Pro, Qwen 3.7-Max) with calibrated statistics.
 * **Citations & Bibliography**: Live, verified external sources linked directly via superscript citation tags, supporting automatic scrolling and card highlights on the sources page.
-* **AI Crawler Friendly (`robots.txt`)**: Welcoming config allowing all AI crawling agents and search engines (GPTBot, ClaudeBot, Google-Extended, etc.) to traverse and index the entire site.
+* **Crawler Friendly (`robots.txt` + `sitemap.xml`)**: Welcoming config allowing all AI crawling agents and search engines (GPTBot, ClaudeBot, Google-Extended, etc.) to traverse and index the entire site, accompanied by a dynamically generated sitemap built during compilation.
 * **Vite SSR Ready**: Structured under **TanStack Start** for modern Server-Side Rendering (SSR) and seamless hydration.
 
 ---
@@ -67,6 +62,7 @@ This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). Fr
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Icons**: [@lobehub/icons](https://github.com/lobehub/lobe-icons) (optimized direct subpath imports)
 - **Build Tool**: [Vite 7](https://vite.dev/)
+- **Testing**: [Vitest](https://vitest.dev/) (Unit/Logic) & [Playwright](https://playwright.dev/) (End-to-End)
 
 ---
 
@@ -74,7 +70,7 @@ This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). Fr
 
 ### Prerequisites
 
-Ensure you have **Node.js** (v18+) and **npm** (or **bun**) installed.
+Ensure you have **Node.js** (v18+) and **npm** installed.
 
 ### Installation
 
@@ -103,7 +99,21 @@ Compile the project for production:
 ```bash
 npm run build
 ```
-This builds the client and SSR server bundles cleanly under the `.output` directory.
+This builds the client and SSR server bundles cleanly under the `.output` directory and automatically generates the updated sitemap.
+
+### Testing
+
+#### Unit Tests (Vitest)
+Verify the O(1) citation map lookups and library data integrity:
+```bash
+npm run test
+```
+
+#### E2E Tests (Playwright)
+Verify pages, navigation layouts, and component render logic:
+```bash
+npm run test:e2e
+```
 
 ---
 
