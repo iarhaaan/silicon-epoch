@@ -6,18 +6,73 @@ import { SOURCES_DATA } from "@/lib/sources-data";
 export const Route = createFileRoute("/sources")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/sources" },
       { title: "Sources & Bibliography — Silicon Epoch" },
       {
         name: "description",
         content:
-          "Transparency bibliography of the primary source publications, research papers, interviews, and statistical reports used on Silicon Epoch.",
+          "Every citation in Silicon Epoch — primary developer releases, research papers, benchmarks, and policy documents that ground every claim in this guide.",
       },
-      { property: "og:title", content: "Sources & Bibliography — Silicon Epoch" },
+      { property: "og:title", content: "Sources & Bibliography" },
+      {
+        property: "og:description",
+        content: "Every citation behind every claim in Silicon Epoch.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/sources" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/sources" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Sources & Bibliography — Silicon Epoch",
+          description:
+            "Every citation in Silicon Epoch — primary developer releases, research papers, benchmarks, and policy documents that ground every claim in this guide.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/sources",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Sources & Bibliography",
+              item: "https://siliconeposh.vercel.app/sources",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Sources,
 });

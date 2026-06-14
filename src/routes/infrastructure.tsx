@@ -6,13 +6,72 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/infrastructure")({
   head: () => ({
     meta: [
-      { title: "Infrastructure & Energy Grid — Silicon Epoch" },
+      { title: "AI Infrastructure & the Power Grid — Gigawatts at Scale" },
       {
         name: "description",
         content:
-          "Gigawatt-scale datacenters, NVIDIA Rubin NVL72 specs, nuclear power agreements (Three Mile Island, Kairos SMR, Talen Susquehanna).",
+          "Vera Rubin NVL72, dedicated nuclear SMRs, gigawatt training campuses — how the AI build-out is forcing the largest grid expansion since the 20th century.",
       },
-      { property: "og:title", content: "Infrastructure & Energy Grid — Silicon Epoch" },
+      { property: "og:title", content: "AI Infrastructure & the Power Grid" },
+      {
+        property: "og:description",
+        content: "Gigawatt training campuses, SMRs, and the new AI power grid.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/infrastructure" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/infrastructure" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "AI Infrastructure & the Power Grid — Gigawatts at Scale",
+          description:
+            "Vera Rubin NVL72, dedicated nuclear SMRs, gigawatt training campuses — how the AI build-out is forcing the largest grid expansion since the 20th century.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/infrastructure",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "AI Infrastructure & the Power Grid",
+              item: "https://siliconeposh.vercel.app/infrastructure",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Infrastructure,

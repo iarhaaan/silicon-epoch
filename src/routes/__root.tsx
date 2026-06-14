@@ -12,6 +12,8 @@ import appCss from "../styles.css?url";
 import { reportError } from "../lib/error-reporting";
 import { SmoothScroll } from "../components/smooth-scroll";
 
+const SITE_URL = "https://siliconeposh.vercel.app";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -100,29 +102,96 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Silicon Epoch — A Field Guide to the AI Frontier" },
+      { name: "color-scheme", content: "light dark" },
+      { name: "theme-color", content: "#faf9f6", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#13110f", media: "(prefers-color-scheme: dark)" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      { title: "Silicon Epoch — A Field Guide to the AI Frontier (2026)" },
       {
         name: "description",
         content:
-          "A comprehensive, current field guide to the AI revolution: every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+          "A comprehensive, current field guide to the AI revolution: every frontier lab, the chip wars, power grids, reasoning models, the data wall, AGI timelines, and the road to superintelligence.",
       },
       { name: "author", content: "Silicon Epoch" },
+      {
+        name: "keywords",
+        content:
+          "AI field guide, frontier AI labs, GPT-5, Claude, Gemini, DeepSeek, AGI, ASI, chip wars, TSMC, NVIDIA, transformers, AI safety, alignment, silicon epoch",
+      },
+      // Open Graph (defaults; leaf routes override)
+      { property: "og:site_name", content: "Silicon Epoch" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_US" },
       { property: "og:title", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
       {
         property: "og:description",
         content:
           "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
       },
-      { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-image-dark.png` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
+      // Twitter
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@SiliconEpoch" },
+      { name: "twitter:creator", content: "@SiliconEpoch" },
+      { name: "twitter:title", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
+      {
+        name: "twitter:description",
+        content:
+          "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image-dark.png` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Silicon Epoch",
+          alternateName: "Silicon Epoch — A Field Guide to the AI Frontier",
+          url: SITE_URL,
+          description:
+            "A comprehensive field guide to the AI revolution — frontier labs, chip wars, power grids, AGI timelines.",
+          inLanguage: "en-US",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${SITE_URL}/sources?q={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Silicon Epoch",
+          url: SITE_URL,
+          logo: `${SITE_URL}/apple-touch-icon.png`,
+          sameAs: ["https://github.com/iarhaaan/siliconeposh"],
+          description: "An independent, citation-driven field guide to the dawn of the AI era.",
+        }),
       },
     ],
   }),

@@ -6,18 +6,74 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/agi-asi")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/agi-asi" },
-      { title: "AGI & ASI Timelines — Silicon Epoch" },
+      { title: "AGI & ASI Timelines — How Close Are We? (2026)" },
       {
         name: "description",
         content:
-          "Consensus AGI predictions from Altman, Amodei, Legg, Hassabis, Schmidt, Huang, Kurzweil. Chinchilla scaling limits and test-time compute.",
+          "Frontier-lab roadmaps for AGI and superintelligence: capabilities reached, capabilities remaining, the bottlenecks of compute, energy, and post-training data.",
       },
-      { property: "og:title", content: "AGI & ASI Timelines — Silicon Epoch" },
+      { property: "og:title", content: "AGI & ASI Timelines — How Close Are We?" },
+      {
+        property: "og:description",
+        content:
+          "Frontier-lab roadmaps, bottlenecks, and the credible path from today's models to AGI.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/agi-asi" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/agi-asi" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "AGI & ASI Timelines — How Close Are We? (2026)",
+          description:
+            "Frontier-lab roadmaps for AGI and superintelligence: capabilities reached, capabilities remaining, the bottlenecks of compute, energy, and post-training data.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/agi-asi",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "AGI & ASI Timelines",
+              item: "https://siliconeposh.vercel.app/agi-asi",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: AgiAsi,
 });

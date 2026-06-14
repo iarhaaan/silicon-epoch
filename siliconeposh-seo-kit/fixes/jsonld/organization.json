@@ -1,0 +1,9 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Silicon Epoch",
+  "url": "https://siliconeposh.vercel.app",
+  "logo": "https://siliconeposh.vercel.app/apple-touch-icon.png",
+  "sameAs": ["https://github.com/iarhaaan/siliconeposh"],
+  "description": "An independent, citation-driven field guide to the dawn of the AI era."
+}

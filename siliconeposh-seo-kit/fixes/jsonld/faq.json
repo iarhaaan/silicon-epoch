@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Silicon Epoch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Silicon Epoch is the decade in which artificial intelligence becomes the dominant force shaping science, work, geopolitics, and culture — driven by frontier compute, transformer architectures, and a new global power grid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI lab is leading in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As of mid-2026 there is no single leader. OpenAI, Anthropic, Google DeepMind, xAI, DeepSeek, Meta, and Mistral each lead in different axes — frontier capability, coding, multimodal, open weights, or cost frontier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AGI close?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frontier-lab roadmaps converge on transformative AI between 2027 and 2030. The bottlenecks are no longer ideas but compute, energy, and post-training data — discussed in the AGI/ASI chapter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the data wall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The data wall is the projected exhaustion of high-quality human-written text for pre-training. Labs respond with synthetic data, multimodal corpora, RLAIF, and test-time scaling — covered in the Data Wall chapter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is TSMC so important to AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TSMC manufactures every frontier AI chip — NVIDIA Blackwell, Google TPU, Apple Silicon, AMD MI. Its 2nm N2 node entering volume production in Q4 2025 is the single biggest hardware unlock for the 2026 model generation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Open weights or closed APIs — which should developers choose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Closed APIs (GPT-5.5, Claude Fable 5, Gemini 3.5) lead capability. Open weights (Llama, DeepSeek V4, Qwen 3.7, Kimi K2.5) win on cost, latency, privacy, and lock-in avoidance. Most production stacks now blend both."
+      }
+    }
+  ]
+}

@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/data-wall")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/data-wall" },
-      { title: "The Data Wall & Synthetic Futures — Silicon Epoch" },
+      { title: "The Data Wall — Synthetic Data and Scaling Limits" },
       {
         name: "description",
         content:
-          "Scraping limits, internet data depletion timelines, MIT provenance content withholding, test-time compute, and reinforcement learning self-play.",
+          "Pre-training data is finite. How the frontier responds: synthetic data, multimodal corpora, test-time scaling, RLAIF, and the move from data scale to compute scale.",
       },
-      { property: "og:title", content: "The Data Wall & Synthetic Futures — Silicon Epoch" },
+      { property: "og:title", content: "The Data Wall & Synthetic Futures" },
+      {
+        property: "og:description",
+        content: "Synthetic data, RLAIF, test-time scaling — the post-data-wall playbook.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/data-wall" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/data-wall" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "The Data Wall — Synthetic Data and Scaling Limits",
+          description:
+            "Pre-training data is finite. How the frontier responds: synthetic data, multimodal corpora, test-time scaling, RLAIF, and the move from data scale to compute scale.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/data-wall",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "The Data Wall",
+              item: "https://siliconeposh.vercel.app/data-wall",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: DataWall,
 });

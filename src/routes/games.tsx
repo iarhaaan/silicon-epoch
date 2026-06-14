@@ -6,13 +6,72 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/games")({
   head: () => ({
     meta: [
-      { title: "Reinforcement Learning & Game Simulation — Silicon Epoch" },
+      { title: "Reinforcement Learning in Games — AlphaZero to Genie" },
       {
         name: "description",
         content:
-          "David Silver's RL milestones from AlphaGo to AlphaStar, and modern simulators like Genie 3 and Factorio agents.",
+          "From perfect-information chess to open-ended Factorio — how reinforcement learning, world models, and generative physics are rewriting both games and the engines beneath them.",
       },
-      { property: "og:title", content: "Reinforcement Learning & Game Simulation — Silicon Epoch" },
+      { property: "og:title", content: "Reinforcement Learning & Game Simulation" },
+      {
+        property: "og:description",
+        content: "How RL and world models are rewriting games and generative physics.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/games" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/games" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Reinforcement Learning in Games — AlphaZero to Genie",
+          description:
+            "From perfect-information chess to open-ended Factorio — how reinforcement learning, world models, and generative physics are rewriting both games and the engines beneath them.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/games",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Reinforcement Learning in Games",
+              item: "https://siliconeposh.vercel.app/games",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Games,

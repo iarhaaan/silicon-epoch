@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/next-decade")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/next-decade" },
-      { title: "Horizon Technologies & Next Decade — Silicon Epoch" },
+      { title: "The Next Decade — Quantum, Neuromorphic, Bio-AI" },
       {
         name: "description",
         content:
-          "Quantum computing (IBM Starling, Google Willow), neuromorphic Rain chips, DNA storage, and the 2026–2035 year-by-year timeline.",
+          "What comes after the transformer: quantum advantage, neuromorphic chips, bio-AI for drug discovery, and the horizon technologies of the post-2030 AI landscape.",
       },
-      { property: "og:title", content: "Horizon Technologies & Next Decade — Silicon Epoch" },
+      { property: "og:title", content: "Horizon Technologies — Beyond 2030" },
+      {
+        property: "og:description",
+        content: "Quantum, neuromorphic, bio-AI — what comes after the transformer.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/next-decade" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/next-decade" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "The Next Decade — Quantum, Neuromorphic, Bio-AI",
+          description:
+            "What comes after the transformer: quantum advantage, neuromorphic chips, bio-AI for drug discovery, and the horizon technologies of the post-2030 AI landscape.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/next-decade",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "The Next Decade",
+              item: "https://siliconeposh.vercel.app/next-decade",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: NextDecade,
 });

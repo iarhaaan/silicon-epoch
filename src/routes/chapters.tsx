@@ -2,23 +2,76 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/chapters")({
-  head: () => {
-    const siteUrl = import.meta.env.VITE_SITE_URL || "https://siliconeposh.vercel.app";
-    return {
-      meta: [
-        { title: "Table of Chapters — Silicon Epoch Index" },
-        {
-          name: "description",
-          content:
-            "Index of all 12 chapters and the Learn AI appendix detailing the silicon frontier.",
-        },
-        { property: "og:title", content: "Table of Chapters — Silicon Epoch Index" },
-        { property: "og:url", content: `${siteUrl}/chapters` },
-        { property: "og:type", content: "article" },
-      ],
-      links: [{ rel: "canonical", href: `${siteUrl}/chapters` }],
-    };
-  },
+  head: () => ({
+    meta: [
+      { title: "All Chapters — Silicon Epoch Index" },
+      {
+        name: "description",
+        content:
+          "Browse every chapter of Silicon Epoch: compute, frontier labs, infrastructure, geopolitics, alignment, AGI, the data wall, and what comes next.",
+      },
+      { property: "og:title", content: "All Chapters — Silicon Epoch Index" },
+      {
+        property: "og:description",
+        content: "Browse every chapter of Silicon Epoch — the AI field guide.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/chapters" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/chapters" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "All Chapters — Silicon Epoch Index",
+          description:
+            "Browse every chapter of Silicon Epoch: compute, frontier labs, infrastructure, geopolitics, alignment, AGI, the data wall, and what comes next.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/chapters",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "All Chapters",
+              item: "https://siliconeposh.vercel.app/chapters",
+            },
+          ],
+        }),
+      },
+    ],
+  }),
   component: ChaptersIndex,
 });
 

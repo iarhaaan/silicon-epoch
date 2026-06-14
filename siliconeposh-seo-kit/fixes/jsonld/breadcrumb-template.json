@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://siliconeposh.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Chapters",
+      "item": "https://siliconeposh.vercel.app/chapters"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "<page name>",
+      "item": "https://siliconeposh.vercel.app/<slug>"
+    }
+  ]
+}

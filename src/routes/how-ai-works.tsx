@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/how-ai-works")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/how-ai-works" },
-      { title: "How AI Works — Silicon Epoch" },
+      { title: "How AI Actually Works — Transformers, Attention, Diffusion" },
       {
         name: "description",
         content:
-          "Transformers, GQA attention, Mixture of Experts (MoE), Mamba SSMs, Flow Matching, and the post-training alignment pipeline.",
+          "A clear, technical walkthrough of how modern AI models work: transformers, attention, mixture-of-experts, diffusion, RLHF, and test-time scaling — without the hand-waving.",
       },
-      { property: "og:title", content: "How AI Works — Silicon Epoch" },
+      { property: "og:title", content: "How AI Works — Transformers, Attention, Diffusion" },
+      {
+        property: "og:description",
+        content: "How modern AI models actually work — transformers, MoE, diffusion, RLHF.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/how-ai-works" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/how-ai-works" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "How AI Actually Works — Transformers, Attention, Diffusion",
+          description:
+            "A clear, technical walkthrough of how modern AI models work: transformers, attention, mixture-of-experts, diffusion, RLHF, and test-time scaling — without the hand-waving.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/how-ai-works",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "How AI Actually Works",
+              item: "https://siliconeposh.vercel.app/how-ai-works",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: HowAIWorks,
 });

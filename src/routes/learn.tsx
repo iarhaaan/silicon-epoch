@@ -5,18 +5,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/learn")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/learn" },
-      { title: "Learn AI — Silicon Epoch" },
+      { title: "Learn AI in 2026 — A Practical Curriculum" },
       {
         name: "description",
         content:
-          "How to actually become AI-fluent in 2026 — the mindset, the daily practice, the tools and the resources.",
+          "What to learn, in what order, to be AI-fluent in 2026: prompting, evals, agent loops, RAG, fine-tuning, and where AI fluency is now the largest pay differentiator.",
       },
-      { property: "og:title", content: "Learn AI — Silicon Epoch" },
+      { property: "og:title", content: "Learn AI — A Practical 2026 Curriculum" },
+      {
+        property: "og:description",
+        content: "What to learn, in what order, to be AI-fluent in 2026.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/learn" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/learn" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Learn AI in 2026 — A Practical Curriculum",
+          description:
+            "What to learn, in what order, to be AI-fluent in 2026: prompting, evals, agent loops, RAG, fine-tuning, and where AI fluency is now the largest pay differentiator.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/learn",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Learn AI in 2026",
+              item: "https://siliconeposh.vercel.app/learn",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Learn,
 });

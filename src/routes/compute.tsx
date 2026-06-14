@@ -6,17 +6,71 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/compute")({
   head: () => ({
     meta: [
-      { title: "The Compute Core — Silicon Epoch" },
+      { title: "The Compute Core — Silicon, Packaging, and AI Hardware" },
       {
         name: "description",
         content:
-          "Silicon fundamentals, advanced packaging bottlenecks (CoWoS), and memory hierarchies powering the AI revolution.",
+          "How modern AI chips are built: NVIDIA Blackwell, Vera Rubin NVL72, Groq, TPU v6, TSMC 2nm N2, CoWoS packaging, HBM4 memory — the substrate of the AI era.",
       },
-      { property: "og:title", content: "The Compute Core — Silicon Epoch" },
+      { property: "og:title", content: "The Compute Core — Silicon Fundamentals" },
       {
         property: "og:description",
-        content:
-          "TSMC 2nm N2 GAA nanosheets, Intel 18A, HBM4 memory scaling, and FP4/NVFP4 numeric formats.",
+        content: "Inside the chips, fabs, and packaging that make modern AI possible.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/compute" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/compute" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "The Compute Core — Silicon, Packaging, and AI Hardware",
+          description:
+            "How modern AI chips are built: NVIDIA Blackwell, Vera Rubin NVL72, Groq, TPU v6, TSMC 2nm N2, CoWoS packaging, HBM4 memory — the substrate of the AI era.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/compute",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "The Compute Core",
+              item: "https://siliconeposh.vercel.app/compute",
+            },
+          ],
+        }),
       },
     ],
   }),

@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/use-cases")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/use-cases" },
-      { title: "AI Use Cases — Silicon Epoch" },
+      { title: "What AI Is Actually Used For — Production Use Cases 2026" },
       {
         name: "description",
         content:
-          "SWE-bench Pro scores, AlphaFold 3 biomolecular docking, GNoME materials discovery, and AlphaGeometry 2 IMO gold medal benchmarks.",
+          "Coding agents shipping commits, olympiad-level math reasoning, drug discovery, contract review, and the use cases driving the $2.5B+ ARR of frontier products.",
       },
-      { property: "og:title", content: "AI Use Cases — Silicon Epoch" },
+      { property: "og:title", content: "AI Use Cases — What Frontier Models Do Today" },
+      {
+        property: "og:description",
+        content: "Production AI use cases driving 2026 revenue — coding, science, ops.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/use-cases" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/use-cases" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "What AI Is Actually Used For — Production Use Cases 2026",
+          description:
+            "Coding agents shipping commits, olympiad-level math reasoning, drug discovery, contract review, and the use cases driving the $2.5B+ ARR of frontier products.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/use-cases",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "What AI Is Actually Used For",
+              item: "https://siliconeposh.vercel.app/use-cases",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: UseCases,
 });

@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/geopolitics")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/geopolitics" },
-      { title: "Geopolitics & Chip Wars — Silicon Epoch" },
+      { title: "AI Chip Wars — TSMC, ASML, and the Geopolitics of Compute" },
       {
         name: "description",
         content:
-          "TSMC Taiwan chokepoint, ASML High-NA EUV lithography, US export controls, and China's domestic Huawei Ascend ecosystem.",
+          "Why TSMC's 2nm node, ASML's EUV monopoly, and US export controls now decide AI capability faster than any model release — the geopolitics of frontier compute.",
       },
-      { property: "og:title", content: "Geopolitics & Chip Wars — Silicon Epoch" },
+      { property: "og:title", content: "AI Chip Wars — Geopolitics of Compute" },
+      {
+        property: "og:description",
+        content: "TSMC 2nm, ASML EUV, export controls — the geopolitics of frontier AI.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/geopolitics" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/geopolitics" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "AI Chip Wars — TSMC, ASML, and the Geopolitics of Compute",
+          description:
+            "Why TSMC's 2nm node, ASML's EUV monopoly, and US export controls now decide AI capability faster than any model release — the geopolitics of frontier compute.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/geopolitics",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "AI Chip Wars",
+              item: "https://siliconeposh.vercel.app/geopolitics",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Geopolitics,
 });

@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "<page title>",
+  "description": "<page description, 120–160 chars>",
+  "image": "https://siliconeposh.vercel.app/og-image-dark.png",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Silicon Epoch",
+    "url": "https://siliconeposh.vercel.app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Silicon Epoch",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://siliconeposh.vercel.app/apple-touch-icon.png"
+    }
+  },
+  "mainEntityOfPage": "https://siliconeposh.vercel.app/<slug>"
+}

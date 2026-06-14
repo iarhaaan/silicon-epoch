@@ -2,23 +2,23 @@ import fs from "fs";
 import path from "path";
 
 const routes = [
-  { path: "", priority: "1.0" },
-  { path: "chapters", priority: "0.9" },
-  { path: "compute", priority: "0.8" },
-  { path: "how-ai-works", priority: "0.8" },
-  { path: "companies", priority: "0.8" },
-  { path: "use-cases", priority: "0.8" },
-  { path: "humanity", priority: "0.8" },
-  { path: "agi-asi", priority: "0.8" },
-  { path: "games", priority: "0.8" },
-  { path: "infrastructure", priority: "0.8" },
-  { path: "geopolitics", priority: "0.8" },
-  { path: "open-vs-closed", priority: "0.8" },
-  { path: "data-wall", priority: "0.8" },
-  { path: "next-decade", priority: "0.8" },
-  { path: "learn", priority: "0.7" },
-  { path: "timeline", priority: "0.9" },
-  { path: "sources", priority: "0.7" },
+  { path: "", priority: "1.0", changefreq: "weekly" },
+  { path: "chapters", priority: "0.9", changefreq: "weekly" },
+  { path: "companies", priority: "0.9", changefreq: "weekly" },
+  { path: "timeline", priority: "0.9", changefreq: "weekly" },
+  { path: "compute", priority: "0.8", changefreq: "weekly" },
+  { path: "how-ai-works", priority: "0.8", changefreq: "weekly" },
+  { path: "infrastructure", priority: "0.8", changefreq: "weekly" },
+  { path: "geopolitics", priority: "0.8", changefreq: "weekly" },
+  { path: "agi-asi", priority: "0.8", changefreq: "weekly" },
+  { path: "data-wall", priority: "0.8", changefreq: "weekly" },
+  { path: "humanity", priority: "0.8", changefreq: "weekly" },
+  { path: "open-vs-closed", priority: "0.8", changefreq: "weekly" },
+  { path: "use-cases", priority: "0.8", changefreq: "weekly" },
+  { path: "next-decade", priority: "0.8", changefreq: "weekly" },
+  { path: "games", priority: "0.7", changefreq: "weekly" },
+  { path: "learn", priority: "0.7", changefreq: "weekly" },
+  { path: "sources", priority: "0.6", changefreq: "monthly" },
 ];
 
 const lastmod = new Date().toISOString().split("T")[0];
@@ -31,7 +31,7 @@ for (const r of routes) {
   xml += "  <url>\n";
   xml += `    <loc>${baseUrl}/${r.path}</loc>\n`;
   xml += `    <lastmod>${lastmod}</lastmod>\n`;
-  xml += "    <changefreq>weekly</changefreq>\n";
+  xml += `    <changefreq>${r.changefreq}</changefreq>\n`;
   xml += `    <priority>${r.priority}</priority>\n`;
   xml += "  </url>\n";
 }

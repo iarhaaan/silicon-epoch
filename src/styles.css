@@ -47,12 +47,12 @@
   --radius: 0.75rem;
 
   /* Paper & Ink editorial palette with ember accent */
-  --paper: oklch(0.975 0.012 85);          /* warm off-white */
-  --cream: oklch(0.955 0.022 80);          /* warm cream */
-  --ink: oklch(0.18 0.015 50);             /* near-black warm */
-  --ember: oklch(0.66 0.20 38);            /* warm orange */
-  --cobalt: oklch(0.42 0.18 258);          /* deep cobalt */
-  --moss: oklch(0.48 0.08 145);            /* deep moss */
+  --paper: oklch(0.975 0.012 85); /* warm off-white */
+  --cream: oklch(0.955 0.022 80); /* warm cream */
+  --ink: oklch(0.18 0.015 50); /* near-black warm */
+  --ember: oklch(0.66 0.2 38); /* warm orange */
+  --cobalt: oklch(0.42 0.18 258); /* deep cobalt */
+  --moss: oklch(0.48 0.08 145); /* deep moss */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -86,7 +86,7 @@
   --primary-foreground: #000000;
   --secondary: oklch(0.12 0.005 60);
   --secondary-foreground: var(--paper);
-  --muted: oklch(0.10 0.005 60);
+  --muted: oklch(0.1 0.005 60);
   --muted-foreground: oklch(0.65 0.01 75);
   --accent: var(--ember);
   --accent-foreground: var(--paper);
@@ -96,15 +96,26 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
 }
 
 @utility display {
@@ -133,7 +144,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 3px 3px;
   mix-blend-mode: multiply;
   opacity: 0.35;
@@ -150,19 +161,30 @@
   animation: ticker 60s linear infinite;
 }
 @keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @utility rise {
   animation: rise 0.7s ease-out both;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 .lenis.lenis-smooth {

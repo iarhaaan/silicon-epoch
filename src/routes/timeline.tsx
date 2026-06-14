@@ -7,18 +7,73 @@ import { Search, Calendar, Award, Cpu, Globe, Gamepad } from "lucide-react";
 export const Route = createFileRoute("/timeline")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/timeline" },
-      { title: "Interactive AI History Timeline — Silicon Epoch" },
+      { title: "Interactive AI History Timeline — 1950 to 2026" },
       {
         name: "description",
         content:
-          "Explore the evolution of artificial intelligence from its founding mathematical concepts in 1950 to the agentic reasoning models of 2026.",
+          "From Turing's test to GPT-5.5 — an interactive timeline of every major AI milestone, model release, lab founding, and policy event of the last 75 years.",
       },
-      { property: "og:title", content: "Interactive AI History Timeline — Silicon Epoch" },
+      { property: "og:title", content: "Interactive AI History Timeline (1950–2026)" },
+      {
+        property: "og:description",
+        content: "Every major milestone in AI from Turing to GPT-5.5.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/timeline" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/timeline" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Interactive AI History Timeline — 1950 to 2026",
+          description:
+            "From Turing's test to GPT-5.5 — an interactive timeline of every major AI milestone, model release, lab founding, and policy event of the last 75 years.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/timeline",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Interactive AI History Timeline",
+              item: "https://siliconeposh.vercel.app/timeline",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: TimelinePage,
 });

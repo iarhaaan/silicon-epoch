@@ -22,23 +22,73 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/" },
-      { title: "Silicon Epoch — How AI Will Reshape Humanity" },
+      { title: "Silicon Epoch — A Field Guide to the AI Frontier (2026)" },
       {
         name: "description",
         content:
-          "A comprehensive, current field guide to the AI revolution: every frontier lab, every model, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+          "Every frontier lab, every model, the chip wars, the data wall, AGI timelines, and the road to superintelligence — a living, citation-driven field guide.",
       },
-      { property: "og:title", content: "Silicon Epoch — How AI Will Reshape Humanity" },
+      { property: "og:title", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
       {
         property: "og:description",
         content:
           "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
       },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:title", content: "Silicon Epoch — A Field Guide to the AI Frontier" },
+      {
+        name: "twitter:description",
+        content:
+          "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence.",
+      },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is the Silicon Epoch?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The Silicon Epoch is the decade in which artificial intelligence becomes the dominant force shaping science, work, geopolitics, and culture — driven by frontier compute, transformer architectures, and a new global power grid.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which AI lab is leading in 2026?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "As of mid-2026 there is no single leader. OpenAI, Anthropic, Google DeepMind, xAI, DeepSeek, Meta, and Mistral each lead in different axes — frontier capability, coding, multimodal, open weights, or cost.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is AGI close?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Frontier-lab roadmaps converge on transformative AI between 2027 and 2030. The bottlenecks are no longer ideas but compute, energy, and post-training data — discussed in the AGI/ASI chapter.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the data wall?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The data wall is the projected exhaustion of high-quality human-written text for pre-training. Labs respond with synthetic data, multimodal corpora, and test-time scaling — covered in the Data Wall chapter.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Index,
 });

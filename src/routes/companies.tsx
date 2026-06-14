@@ -7,13 +7,72 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/companies")({
   head: () => ({
     meta: [
-      { title: "Frontier AI Labs — Ecosystem Leaderboard · June 2026" },
+      { title: "Frontier AI Labs Compared — June 2026 Leaderboard" },
       {
         name: "description",
         content:
-          "OpenAI GPT-5.5, Anthropic Claude Fable 5, Google Gemini 3.5, xAI Grok 4.3, Meta Muse Spark, DeepSeek V4-Pro, Qwen 3.7-Max, GLM-5 - flagship models, CEO quotes, and pricing.",
+          "OpenAI GPT-5.5, Anthropic Claude Fable 5, Google Gemini 3.5, xAI Grok 4.3, Meta Muse Spark, DeepSeek V4-Pro, Qwen 3.7-Max — flagship models, CEOs, funding, vision.",
       },
-      { property: "og:title", content: "Frontier AI Labs — Ecosystem Leaderboard" },
+      { property: "og:title", content: "Frontier AI Labs — Ecosystem Leaderboard 2026" },
+      {
+        property: "og:description",
+        content: "Every frontier lab compared: flagship models, funding, leadership, roadmaps.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/companies" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/companies" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Frontier AI Labs Compared — June 2026 Leaderboard",
+          description:
+            "OpenAI GPT-5.5, Anthropic Claude Fable 5, Google Gemini 3.5, xAI Grok 4.3, Meta Muse Spark, DeepSeek V4-Pro, Qwen 3.7-Max — flagship models, CEOs, funding, vision.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/companies",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Frontier AI Labs Compared",
+              item: "https://siliconeposh.vercel.app/companies",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Companies,

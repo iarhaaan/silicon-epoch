@@ -6,18 +6,73 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/humanity")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
-      { property: "og:url", content: "https://siliconeposh.vercel.app/humanity" },
-      { title: "Safety, Alignment & Labor — Silicon Epoch" },
+      { title: "AI Safety, Alignment, and the Future of Work" },
       {
         name: "description",
         content:
-          "Post-training pipelines (DPO, PPO, GRPO), Constitutional AI, alignment failures (sleeper agents), and economic labor transitions.",
+          "Post-training pipelines, RLHF, RLAIF, constitutional AI, and the labor-market shifts already underway — the human side of the Silicon Epoch.",
       },
-      { property: "og:title", content: "Safety, Alignment & Labor — Silicon Epoch" },
+      { property: "og:title", content: "Safety, Alignment & Labor" },
+      {
+        property: "og:description",
+        content: "Alignment techniques and labor-market shifts in the Silicon Epoch.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/humanity" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
     ],
     links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/humanity" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "AI Safety, Alignment, and the Future of Work",
+          description:
+            "Post-training pipelines, RLHF, RLAIF, constitutional AI, and the labor-market shifts already underway — the human side of the Silicon Epoch.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/humanity",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "AI Safety, Alignment, and the Future of Work",
+              item: "https://siliconeposh.vercel.app/humanity",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Humanity,
 });

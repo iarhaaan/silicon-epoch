@@ -6,13 +6,72 @@ import { ChapterNavigation } from "@/components/chapter-navigation";
 export const Route = createFileRoute("/open-vs-closed")({
   head: () => ({
     meta: [
-      { title: "Open Weights vs Closed APIs — Silicon Epoch" },
+      { title: "Open Weights vs Closed APIs — Which Wins in 2026?" },
       {
         name: "description",
         content:
-          "Comparing closed models (GPT-5.5, Claude Fable) with open weights (Llama 4, DeepSeek-V4-Pro). Licensing, biosecurity safeguards, and EU/CA regulation.",
+          "Llama, DeepSeek, Qwen, Mistral vs GPT, Claude, Gemini — the trade-offs of open-weight vs closed-API models for cost, capability, latency, and lock-in.",
       },
-      { property: "og:title", content: "Open Weights vs Closed APIs — Silicon Epoch" },
+      { property: "og:title", content: "Open Weights vs Closed APIs" },
+      {
+        property: "og:description",
+        content: "The trade-offs between open-weight and closed-API frontier models.",
+      },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/open-vs-closed" },
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image-dark.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://siliconeposh.vercel.app/open-vs-closed" }],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Open Weights vs Closed APIs — Which Wins in 2026?",
+          description:
+            "Llama, DeepSeek, Qwen, Mistral vs GPT, Claude, Gemini — the trade-offs of open-weight vs closed-API models for cost, capability, latency, and lock-in.",
+          image: "https://siliconeposh.vercel.app/og-image-dark.png",
+          datePublished: "2026-06-01",
+          dateModified: "2026-06-14",
+          author: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            url: "https://siliconeposh.vercel.app",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Silicon Epoch",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://siliconeposh.vercel.app/apple-touch-icon.png",
+            },
+          },
+          mainEntityOfPage: "https://siliconeposh.vercel.app/open-vs-closed",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://siliconeposh.vercel.app/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Open Weights vs Closed APIs",
+              item: "https://siliconeposh.vercel.app/open-vs-closed",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: OpenVsClosed,
