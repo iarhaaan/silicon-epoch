@@ -42,11 +42,4 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Block badly-behaved scrapers (optional; remove if you want maximum reach)
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
 Sitemap: https://siliconepoch.vercel.app/sitemap.xml
