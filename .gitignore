@@ -38,3 +38,6 @@ research 3.txt
 
 .vercel/
 
+# AI Agent Persistent Memory (local-only)
+.agents/
+ANTIGRAVITY/
