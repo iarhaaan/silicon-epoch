@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 64" width="400" height="64" role="img" aria-label="Silicon Epoch">
-  <circle cx="32" cy="32" r="22" fill="none" stroke="#f5f0e5" stroke-width="1.5"/>
-  <text x="32" y="42" text-anchor="middle" font-family="'Instrument Serif', 'Times New Roman', serif" font-style="italic" font-size="32" fill="#f5f0e5">S</text>
-  <circle cx="46" cy="18" r="3.5" fill="#ff6a3d"/>
-  <text x="80" y="44" font-family="'Instrument Serif', 'Times New Roman', serif" font-size="40" fill="#f5f0e5">Silicon</text>
-  <text x="194" y="44" font-family="'Instrument Serif', 'Times New Roman', serif" font-style="italic" font-size="40" fill="#ff6a3d">Epoch</text>
-</svg>
